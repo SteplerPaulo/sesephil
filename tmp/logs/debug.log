@@ -1,0 +1,4 @@
+2016-07-22 18:01:56 Debug: Notice (8): Undefined variable: image in [C:\wamp\www\sesephil\views\product_images\admin_index.ctp, line 24]
+2016-07-22 18:02:07 Debug: Notice (8): Undefined variable: image in [C:\wamp\www\sesephil\views\product_images\admin_index.ctp, line 24]
+2016-07-22 18:02:25 Debug: Notice (8): Undefined variable: image in [C:\wamp\www\sesephil\views\product_images\admin_index.ctp, line 24]
+2016-07-22 18:18:48 Debug: Notice (8): Undefined variable: productImage in [C:\wamp\www\sesephil\views\pages\home.ctp, line 47]
