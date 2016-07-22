@@ -4,9 +4,10 @@
 		<legend><?php __('Edit Product'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('name');
 		echo $this->Form->input('category_id');
 		echo $this->Form->input('manufacturer_id');
+		echo $this->Form->input('name');
+		echo $this->Form->input('slug');
 		echo $this->Form->input('description');
 	?>
 	</fieldset>
