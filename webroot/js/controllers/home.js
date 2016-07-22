@@ -5,7 +5,10 @@ App.controller('HomeController',function($scope,$rootScope,$http,$filter){
 		$scope.categoryLimit = false;
 		$scope.productLimit = 5;
 		 
-		 $scope.myText = "My name is: <h1>John Doe</h1>";
+		 $scope.phones = [{
+			"name": "Motorola XOOM™ with Wi-Fi",
+				"snippet": "The Next, Next <br/> Generation tablet."
+		}];
 			
 		$http.get("/sesephil/categories/main_children").success(function(response) {
 			$scope.categories = response;
