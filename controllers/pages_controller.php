@@ -52,7 +52,7 @@ class PagesController extends AppController {
  * @var array
  * @access public
  */
-	var $uses = array('Category');
+	var $uses = array();
 
 /**
  * Displays a view
