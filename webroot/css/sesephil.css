@@ -22,7 +22,8 @@ body {
 }
 
 .caption {
-    height: 130px;
+    height: 90px;/*130px;*/
+	
     overflow: hidden;
 }
 /*NOT USEFULL
@@ -53,8 +54,12 @@ footer {
     margin: 50px 0;
 }
 /**MY STYLE**/
-.navbar i{
-	color:#03a4d8;
+.navbar a{
+	color:#ffffff !important;
+	
+}
+.navbar a:hover{
+	color:#d9edf7 !important;
 	
 }
 .ellipsis{
@@ -83,4 +88,14 @@ pre{
 .caption dt,.caption  dd { 
 	float: left 
 }
-
+/*
+.company-name{
+    color: #fff !important;
+    text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;
+    font: 35px 'ChunkFiveRegular';
+}
+*/
+.navbar-inverse {
+    background-color: #009ef0;
+    border-color: #337ab7;
+}
