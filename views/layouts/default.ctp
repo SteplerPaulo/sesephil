@@ -60,7 +60,7 @@
 					<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-heartbeat')).' '.
 									$this->Html->tag('span', 'South East Star Enterprises'),
 									array('admin' => false,'controller'=>'pages','action'=>'/'),
-									array('escape' => false,'class'=>'navbar-brand')
+									array('escape' => false,'class'=>'navbar-brand company-name')
 									);  ?>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
