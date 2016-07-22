@@ -3,10 +3,11 @@
 	<fieldset>
 		<legend><?php __('Add Category'); ?></legend>
 	<?php
-		echo $this->Form->input('parent_id',array('options'=>$parentCategories));
+		echo $this->Form->input('parent_id');
 		echo $this->Form->input('lft');
 		echo $this->Form->input('rght');
 		echo $this->Form->input('name');
+		echo $this->Form->input('slug');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

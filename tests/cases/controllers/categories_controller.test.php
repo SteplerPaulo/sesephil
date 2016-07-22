@@ -1,5 +1,5 @@
 <?php
-/* Categories Test cases generated on: 2014-09-30 09:09:28 : 1412060968*/
+/* Categories Test cases generated on: 2016-07-22 09:46:34 : 1469173594*/
 App::import('Controller', 'Categories');
 
 class TestCategoriesController extends CategoriesController {
@@ -21,6 +21,46 @@ class CategoriesControllerTestCase extends CakeTestCase {
 	function endTest() {
 		unset($this->Categories);
 		ClassRegistry::flush();
+	}
+
+	function testIndex() {
+
+	}
+
+	function testView() {
+
+	}
+
+	function testAdd() {
+
+	}
+
+	function testEdit() {
+
+	}
+
+	function testDelete() {
+
+	}
+
+	function testAdminIndex() {
+
+	}
+
+	function testAdminView() {
+
+	}
+
+	function testAdminAdd() {
+
+	}
+
+	function testAdminEdit() {
+
+	}
+
+	function testAdminDelete() {
+
 	}
 
 }

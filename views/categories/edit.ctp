@@ -8,6 +8,7 @@
 		echo $this->Form->input('lft');
 		echo $this->Form->input('rght');
 		echo $this->Form->input('name');
+		echo $this->Form->input('slug');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

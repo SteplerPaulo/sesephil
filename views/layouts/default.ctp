@@ -22,106 +22,93 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php __('SB Admin 2 - Bootstrap Admin Theme:'); ?>
+		<?php __('SESEPHIL:'); ?>
 		<?php echo $title_for_layout; ?>
 	</title>
-	
-	
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
 	<?php
 		echo $this->Html->meta('icon');
 		echo $this->Html->css('bootstrap.min'); //Bootstrap Core CSS
-		echo $this->Html->css('plugins/metisMenu/metisMenu.min'); //MetisMenu CSS
-		echo $this->Html->css('plugins/timeline'); //Timeline CSS
-		echo $this->Html->css('sb-admin-2'); //Custom CSS
-		echo $this->Html->css('plugins/morris.css'); //Morris Charts CSS
-		echo $this->Html->css('font-awesome-4.1.0/css/font-awesome.min'); //Custom Fonts
+		echo $this->Html->css('sesephil'); //Custom CSS
+		echo $this->Html->css('template\font-awesome-4.4.0\css\font-awesome'); //Custom Fonts
 	?>
-
-
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	
-
-	<?php
-		//echo $this->Html->css('cake.generic');
-		echo $scripts_for_layout;
-	?>
 </head>
 <body>
-
-    <div id="wrapper">
+    <div ng-app="App">
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="javascript:void(0)">SB Admin v2.0</a>
-            </div>
-			
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            
-			
-			<!--SIDE BAR-->
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li>
-                            <a class="active" href="javascript:void(0)"><i class="fa fa-u fa-fw"></i> Home Page</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)"><i class="fa fa-u fa-fw"></i> Other Page</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					
+					<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-heartbeat')).' '.
+									$this->Html->tag('span', 'South East Star Enterprises'),
+									array('admin' => false,'controller'=>'pages','action'=>'/'),
+									array('escape' => false,'class'=>'navbar-brand')
+									);  ?>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						
+						<li>
+							<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-dropbox')).' '.
+								$this->Html->tag('span', 'Product'),
+								array('admin' => false,'controller'=>'products','action'=>'/'),
+								array('escape' => false));						
+							?>
+						</li>
+						<li>
+							<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' =>'fa fa-info-circle')).' '.
+								$this->Html->tag('span', 'About'),
+								array('admin' => false,'controller'=>'pages','action'=>'/about'),
+								array('escape' => false));						
+							?>
+						</li>
+						<li>
+							<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' =>'fa fa-phone-square')).' '.
+								$this->Html->tag('span', 'Contact'),
+								array('admin' => false,'controller'=>'pages','action'=>'/contact'),
+								array('escape' => false));						
+							?>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container -->
+		</nav>
 
-        <div id="page-wrapper">
+        <div id="ContentForLayoutContainer" class="container">
            <?php echo $this->Session->flash(); ?>
 			<?php echo $content_for_layout; ?>
         </div>
     </div>
-	
 	<?php
-		echo $this->Html->script(array('jquery-1.11.0')); //jQuery Version 1.11.0
+		echo $this->Html->script(array('jquery')); 
 		echo $this->Html->script(array('bootstrap.min')); //Bootstrap Core JavaScript
-		echo $this->Html->script(array('plugins/metisMenu/metisMenu.min')); //Metis Menu Plugin JavaScript
-		echo $this->Html->script(array('plugins/morris/raphael.min','plugins/morris/morris.min','plugins/morris/morris-data')); //Morris Charts JavaScript
-		echo $this->Html->script(array('sb-admin-2')); //Custom Theme JavaScript
-		echo $scripts_for_layout;
+		echo $this->Html->script(array('template/angular'));
+		echo $this->Html->script(array('template/angular-sanitize'));
+		echo $this->Html->script(array('angularUtils/directives/dirPagination'));
+		echo $this->Html->script(array('angularUtils/directives/ui-bootstrap-tpls-0.14.3.min'));
 	?>
-	
-	<?php // echo $this->element('sql_dump'); 
-	?>
+	<script type="text/javascript">(function(){window.App = angular.module('App',['angularUtils.directives.dirPagination','ngSanitize'])})();</script>
+	<?php  echo $scripts_for_layout; ?>
 </body>
 </html>
