@@ -1,0 +1,12 @@
+CakePHP 3
+
+/config/app.php
+/tmp/*
+/logs/*
+
+CakePHP 2
+
+/app/tmp/*
+
+
+
