@@ -96,7 +96,8 @@
 		</nav>
 
         <div id="ContentForLayoutContainer" class="container">
-           <?php echo $this->Session->flash(); ?>
+			<?php echo $this->Session->flash(); ?>
+			<?php echo $this->Session->flash('email'); ?>
 			<?php echo $content_for_layout; ?>
         </div>
     </div>
