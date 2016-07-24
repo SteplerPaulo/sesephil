@@ -96,6 +96,17 @@ pre{
 }
 */
 .navbar-inverse {
-    background-color: #009ef0;
-    border-color: #337ab7;
+    background-color: #269ef4; /*#009ef0;*/
+    border-color: #269ff5;
 }
+/*
+body  {
+    background: url("/sesephil/webroot/img/bg1.jpg") no-repeat center center fixed;
+     -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	
+	
+}
+*/
