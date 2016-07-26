@@ -34,6 +34,54 @@ CREATE TABLE `categories` (
 
 insert  into `categories`(`id`,`parent_id`,`lft`,`rght`,`name`,`slug`) values (1,NULL,1,28,'Main','main'),(2,1,2,3,'Pregnancy Test Kit','pregnancy-test-kit'),(3,1,4,5,'Dosiflow','dosiflow'),(4,1,6,7,'Welcare Products','welcare-products'),(5,1,8,9,'Philcast Orthopedic Casting Tapes','philcast-orthopedic-casting-tapes'),(6,1,10,11,'Sesemed Products','sesemed-products'),(7,1,12,13,'Locally Produce Products','locally-produce-products'),(8,1,14,15,'Gloves','gloves'),(9,1,16,17,'Flexicare','flexicare'),(10,1,18,19,'NEX Disposal Surgical Brush','NEX-disposal-surgical-brush'),(11,1,20,21,'Supercath5','supercath5'),(12,1,22,23,'Eco Bath Towelletes','eco-bath-towelletes'),(13,1,24,25,'Assut Sutures','assut-sutures'),(14,1,26,27,'Other Products','other-products');
 
+/*Table structure for table `events` */
+
+DROP TABLE IF EXISTS `events`;
+
+CREATE TABLE `events` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `caption` varchar(255) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `events` */
+
+/*Table structure for table `inquiries` */
+
+DROP TABLE IF EXISTS `inquiries`;
+
+CREATE TABLE `inquiries` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `from` varchar(255) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `content` text,
+  `created` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+/*Data for the table `inquiries` */
+
+insert  into `inquiries`(`id`,`from`,`subject`,`content`,`created`) values (1,'pkerroj@gmail.com','Test 1','Dear Sir, \r\nHope you are doing well! \r\nThis is James from ABC LLC. We are a trading company with offices in Europe\r\nand Latin America. \r\nWe need Polished Floor Tiles. \r\nDark Black Color: 795 pcs of 1000*1000/mm and 125 pcs of 800*800/mm.\r\nBrown Color: 260 pcs of 800*800/mm. \r\nCan you send me prices of your products; also let me know your Minimum \r\nOrder, payment terms and delivery time. ','2016-07-24 12:41:30'),(2,'pkerroj@gmail.com','Test 2','Dear Sir, \r\nHope you are doing well! \r\nThis is James from ABC LLC. We are a trading company with offices in Europe\r\nand Latin America. \r\nWe need Polished Floor Tiles. \r\nDark Black Color: 795 pcs of 1000*1000/mm and 125 pcs of 800*800/mm.\r\nBrown Color: 260 pcs of 800*800/mm. \r\nCan you send me prices of your products; also let me know your Minimum \r\nOrder, payment terms and delivery time. ','2016-07-24 12:41:51'),(3,'pkerroj@gmail.com','SEND VIA SMTP WITH ATTACHED FILE','Dear Sir, \r\nHope you are doing well! \r\nThis is James from ABC LLC. We are a trading company with offices in Europe\r\nand Latin America. \r\nWe need Polished Floor Tiles. \r\nDark Black Color: 795 pcs of 1000*1000/mm and 125 pcs of 800*800/mm.\r\nBrown Color: 260 pcs of 800*800/mm. \r\nCan you send me prices of your products; also let me know your Minimum \r\nOrder, payment terms and delivery time. ','2016-07-24 12:42:54'),(4,'pkerroj@gmail.com','SEND VIA SMTP ','Dear Sir, \r\nHope you are doing well! \r\nThis is James from ABC LLC. We are a trading company with offices in Europe\r\nand Latin America. \r\nWe need Polished Floor Tiles. \r\nDark Black Color: 795 pcs of 1000*1000/mm and 125 pcs of 800*800/mm.\r\nBrown Color: 260 pcs of 800*800/mm. \r\nCan you send me prices of your products; also let me know your Minimum \r\nOrder, payment terms and delivery time. ','2016-07-24 12:44:12'),(5,'pkerroj@gmail.com','101','Hi ','2016-07-24 13:39:35'),(6,'pkerroj@gmail.com','Inquiry about Vet Veterinary Infusion Pump with Cage Mounting','Dear Sir, \r\nHope you are doing well! \r\nThis is James from ABC LLC. We are a trading company with offices in Europe\r\nand Latin America. \r\nWe need Polished Floor Tiles. \r\nDark Black Color: 795 pcs of 1000*1000/mm and 125 pcs of 800*800/mm.\r\nBrown Color: 260 pcs of 800*800/mm. \r\nCan you send me prices of your products; also let me know your Minimum \r\nOrder, payment terms and delivery time. \r\nThanks and best regards, ','2016-07-24 13:52:34'),(7,'pkerroj@gmail.com','Testing','Paulo CVOntetn','2016-07-26 13:07:41');
+
+/*Table structure for table `inquiry_files` */
+
+DROP TABLE IF EXISTS `inquiry_files`;
+
+CREATE TABLE `inquiry_files` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `inquiry_id` int(11) DEFAULT NULL,
+  `file_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+/*Data for the table `inquiry_files` */
+
+insert  into `inquiry_files`(`id`,`inquiry_id`,`file_name`) values (1,1,'TYPING.docx'),(2,3,'TYPING.docx'),(3,5,'cake1.jpg'),(4,6,'pt.jpg'),(5,7,'MASONRY.docx');
+
 /*Table structure for table `manufacturers` */
 
 DROP TABLE IF EXISTS `manufacturers`;
@@ -59,9 +107,11 @@ CREATE TABLE `product_images` (
   `img_file` varchar(255) NOT NULL,
   `caption` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 /*Data for the table `product_images` */
+
+insert  into `product_images`(`id`,`product_id`,`img_file`,`caption`) values (6,1,'One_Step_HCG_Pregnancy_Test_Cassette_SM_DG01.jpg','T'),(4,3,'pt.jpg','PT 1'),(5,3,'images.jpg','PT 2'),(7,1,'Clinical_HCG_Pregnancy_Cassette_Test_YT_052.jpg','k'),(8,2,'HCG_Pregnancy_Test_Strip.jpg','l'),(9,2,'Rapid_HCG_Pregnancy_Test_strip_cassette_midstream_with_CE_ISO_Certificated.jpg','m'),(11,4,'dosiflow_500x500.jpeg','s'),(12,4,'dosi_flow_adef_rio.jpg',''),(13,4,'dosiFuser_500x500.jpeg','');
 
 /*Table structure for table `products` */
 
