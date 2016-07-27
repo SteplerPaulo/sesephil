@@ -22,10 +22,16 @@ body {
 }
 
 .caption {
-    height: 90px;/*130px;*/
-	
+	height: 90px;/*130px;*/
     overflow: hidden;
 }
+
+.contact-now{
+	text-align: right;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
 /*NOT USEFULL
 .caption h4 {
    // white-space: nowrap;
