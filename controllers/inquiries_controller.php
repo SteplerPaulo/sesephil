@@ -2,6 +2,7 @@
 class InquiriesController extends AppController {
 
 	var $name = 'Inquiries';
+	var $uses = array('Inquiry','Product');
 	var $components = array('Email');
 
 	function index() {
@@ -116,7 +117,7 @@ class InquiriesController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 
-	function send() {
+	function send($slug = null) {
 		if (!empty($this->data)) {
 			$attachement =  null;
 			$this->Inquiry->create();
@@ -152,11 +153,17 @@ class InquiriesController extends AppController {
 										
 										
 				$this->Session->setFlash(__('The inquiry has been saved', true));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('controller'=>'products','action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The inquiry could not be saved. Please, try again.', true));
 			}
 		}
+		
+		
+		$product = $this->Product->findBySlug($slug);
+		//pr($product);exit;
+		$this->set('product', $product);
+		
 	}
 	
 	//CREATING NEW FOLDER SAMPLE
@@ -218,6 +225,5 @@ class InquiriesController extends AppController {
 		$data = $this->Inquiry->find('all');
 		echo json_encode($data);
 		exit;
-		
 	}
 }
