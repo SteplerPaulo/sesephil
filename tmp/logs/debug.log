@@ -39,3 +39,4 @@
 2016-07-24 13:05:14 Debug: Notice (8): Undefined variable:  in [C:\wamp\www\sesephil\views\elements\email\html\inquiry.ctp, line 1]
 2016-07-24 13:05:55 Debug: Notice (8): Undefined variable: smtp_errors in [C:\wamp\www\sesephil\views\elements\email\html\inquiry.ctp, line 2]
 2016-07-24 13:05:55 Debug: Notice (8): Undefined variable:  in [C:\wamp\www\sesephil\views\elements\email\html\inquiry.ctp, line 2]
+2016-07-27 10:42:13 Debug: Notice (8): Undefined variable: product in [C:\wamp\www\sesephil\views\inquiries\send.ctp, line 9]
