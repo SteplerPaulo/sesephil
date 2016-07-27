@@ -16,8 +16,10 @@ class ManufacturersController extends AppController {
 		$this->set('manufacturer', $this->Manufacturer->read(null, $id));
 	}
 
-	function add() {
+	function admin_add() {
 		if (!empty($this->data)) {
+			$this->data['Manufacturer']['slug'] = preg_replace('#[ -\.]+#', '-', strtolower(trim($this->data['Manufacturer']['name'])));
+			
 			$this->Manufacturer->create();
 			if ($this->Manufacturer->save($this->data)) {
 				$this->Session->setFlash(__('The manufacturer has been saved', true));
@@ -27,8 +29,8 @@ class ManufacturersController extends AppController {
 			}
 		}
 	}
-
-	function edit($id = null) {
+	
+	function admin_edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid manufacturer', true));
 			$this->redirect(array('action' => 'index'));
@@ -46,7 +48,7 @@ class ManufacturersController extends AppController {
 		}
 	}
 
-	function delete($id = null) {
+	function admin_delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for manufacturer', true));
 			$this->redirect(array('action'=>'index'));
@@ -57,5 +59,23 @@ class ManufacturersController extends AppController {
 		}
 		$this->Session->setFlash(__('Manufacturer was not deleted', true));
 		$this->redirect(array('action' => 'index'));
+	}
+	
+	function admin_slug(){
+		$manufacturers = $this->Manufacturer->find('all');
+		
+		foreach($manufacturers as $k=>$d){
+			
+			$data['Manufacturer'][$k]['id'] = $d['Manufacturer']['id'];
+			$data['Manufacturer'][$k]['slug'] = preg_replace('#[ -\.]+#', '-', strtolower(trim($d['Manufacturer']['name'])));
+		}
+	
+		if ($this->Manufacturer->saveAll($data['Manufacturer'])) {
+			echo 'The manufacturer slug has been updated';
+			exit;
+		} else {
+			echo 'The manufacturer slug could not be saved. Please, try again.';
+			exit;
+		}
 	}
 }
