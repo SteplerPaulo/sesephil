@@ -62,28 +62,23 @@
 							<h4>
 								<a href="#">{{d.Product.name}}</a>
 							</h4>
+							<p>
 							<dl>
 							  <dt>Manufactured by:</dt>
 							  <dd>{{d.Manufacturer.name}}</dd>
 							</dl>
-						</div>
-						<div class="ratings">
-							<p class="pull-right">15 reviews</p>
-							<p>
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
-								<span class="glyphicon glyphicon-star"></span>
 							</p>
 						</div>
+						<p class="contact-now">
+							<a href="/sesephil/inquiries/send/{{d.Product.slug}}" target="_blank" class="btn btn-danger btn-sm"><i class="fa fa-envelope-o"></i> Contact Now</a>
+						</p>
 					</div>
 				</div>
 				<div class="col-sm-4 col-lg-4 col-md-4">
 					<h4><a href="#">Like this template?</a>
 					</h4>
 					<p>If you like this template, then check out <a target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this tutorial</a> on how to build a working review system for your online store!</p>
-					<a class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
+					<a class="btn btn-primary btn-sm" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
 				</div>
 
 			</div>
