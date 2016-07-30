@@ -108,15 +108,30 @@
 		<div class="container" style="padding-top: 10px;">
 			<p class="text-muted credit">Powered by <a href="#">P'KerRoj Technology</a>.
 				<span class="pull-right">
-					<?php  echo $this->Html->link(
-										$this->Html->tag('span', 'Register'),
-										array('admin' => false,'controller'=>'users','action'=>'register'),
-										array('escape' => false));						
-									?> | <?php  echo $this->Html->link(
-										$this->Html->tag('span', 'Sign In'),
-										array('admin' => false,'controller'=>'users','action'=>'login'),
-										array('escape' => false));						
-									?>
+					<?php  if($this->Access->isLoggedIn()):?>
+							<?php	echo $this->Html->link(
+									$this->Html->tag('span', 'Logout'),
+									array('admin' => false,'controller'=>'users','action'=>'logout'),
+									array('escape' => false));					
+							?> | 
+							<?php	echo $this->Html->link(
+									$this->Html->tag('span', 'Dashboard'),
+									array('admin' => false,'controller'=>'admin','action'=>'/'),
+									array('escape' => false));	
+							?>
+					<?php else:?>
+						<?php  echo $this->Html->link(
+									$this->Html->tag('span', 'Register'),
+									array('admin' => false,'controller'=>'users','action'=>'register'),
+									array('escape' => false));
+						?>
+						|
+						<?php echo $this->Html->link(
+									$this->Html->tag('span', 'Sign In'),
+									array('admin' => false,'controller'=>'users','action'=>'login'),
+									array('escape' => false));
+						?>
+					<?php endif;?>		
 				</span>
 			</p>
 		</div>
