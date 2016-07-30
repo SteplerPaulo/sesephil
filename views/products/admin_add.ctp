@@ -6,7 +6,7 @@
 		<div class="login-panel panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title">	
-					<h4>Add Product</h4>
+					<h4>ADD PRODUCT</h4>
 				</h3>
 			</div>
 			<?php echo $this->Form->create('Product');?>

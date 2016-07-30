@@ -6,7 +6,7 @@
 		<div class="login-panel panel panel-warning">
 			<div class="panel-heading">
 				<h3 class="panel-title">	
-					<h4>Edit Category</h4>
+					<h4>EDIT CATEGORY</h4>
 				</h3>
 			</div>
 			<?php echo $this->Form->create('Category');?>
