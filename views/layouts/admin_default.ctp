@@ -202,15 +202,19 @@
 														);  ?>
                             </li>
                         </ul>
-                    </li>
-					
+                    </li>		
 					<li>
-						<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' =>'fa fa-users')).' '.
-							$this->Html->tag('span', 'Users'),
-							array('admin' => true,'controller'=>'users','action'=>'/'),
-							array('escape' => false));						
-						?>
-					</li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#UsersLink" class="" aria-expanded="true"><i class="fa fa-fw fa-truck"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="UsersLink" class="collapse in" aria-expanded="true">
+                            <li>		
+								<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-list-alt')).' '.
+														$this->Html->tag('span', 'List'),
+														array('admin' => true,'controller'=>'users','action'=>'/'),
+														array('escape' => false)
+														);  ?>
+                            </li>
+                        </ul>
+                    </li>				
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
