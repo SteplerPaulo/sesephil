@@ -81,6 +81,9 @@ class CategoriesController extends AppController {
 
 	function admin_add() {
 		if (!empty($this->data)) {
+			$this->data ["Category"]['slug'] = preg_replace ('#[ -]+#','-', strtolower(trim($this->data ["Category"]['name'])));
+			
+			
 			$this->Category->create();
 			if ($this->Category->save($this->data)) {
 				$this->Session->setFlash(__('The category has been saved', true));
@@ -89,8 +92,11 @@ class CategoriesController extends AppController {
 				$this->Session->setFlash(__('The category could not be saved. Please, try again.', true));
 			}
 		}
-		$parentCategories = $this->Category->ParentCategory->find('list');
-		$this->set(compact('parentCategories'));
+		$categories = $this->Category->find('list');
+	
+		
+		
+		$this->set(compact('categories'));
 	}
 
 	function admin_edit($id = null) {

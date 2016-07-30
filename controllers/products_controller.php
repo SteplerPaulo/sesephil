@@ -79,6 +79,10 @@ class ProductsController extends AppController {
 
 	function admin_add() {
 		if (!empty($this->data)) {
+			
+		
+			$this->data ["Product"]['slug'] = preg_replace ('#[ -]+#','-', strtolower(trim($this->data ["Product"]['name'])));
+		
 			$this->Product->create();
 			if ($this->Product->save($this->data)) {
 				$this->Session->setFlash(__('The product has been saved', true));
