@@ -1,19 +1,24 @@
+<?php echo $this->Html->addCrumb('Dashboard','/admin/'); ?>
+<?php echo $this->Html->addCrumb('Products',''); ?>
 <div ng-controller="AdminProductsController" ng-init="initializeController()">	
 	<div class="row">
 		<div class="col-lg-4 col-md-4 col-xs-4">
 			<label for="search">Search</label>
 			<input ng-model="q" id="search" class="form-control input-sm" placeholder="Filter text">
 		</div>
-		<div class="col-lg-4  col-md-4 col-xs-4 col-lg-offset-4 col-md-offset-4 col-xs-offset-4 ">
+		<div class="col-lg-2 col-md-2 col-xs-2 col-lg-offset-6 col-md-offset-6 col-xs-offset-6">
 			<label for="search">Items per page</label>
 			<input type="number" min="1" max="100" class="form-control input-sm ng-pristine ng-valid ng-valid-number ng-valid-max ng-valid-min" ng-model="pageSize">
 		</div>
 	</div><br/>
-
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-xs-12">
-			<table class="table table-bordered">
+			<table class="table table-striped table-hovered">
 				<thead>
+					<tr >
+						<th colspan="4">PRODUCTS</th>
+						<th colspan="1"><a href = "/sesephil/admin/products/add" class="btn btn-sm btn-warning pull-right">Add New Product</a></th>
+					</tr>
 					<tr>
 						<th>ID</th>
 						<th>Name</th>
