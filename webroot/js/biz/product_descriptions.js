@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	
 	$('#summernote').summernote({
-		minHeight: 100,             // set minimum height of editor
+		minHeight: 220,             // set minimum height of editor
 		maxHeight: null,             // set maximum height of editor
 		focus: false,               // set focus to editable area after initializing summernote
 		placeholder:"Type and format your content here...",
