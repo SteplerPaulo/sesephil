@@ -168,7 +168,7 @@
 					</li>
 					<li>		
 						<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-truck')).' '.
-												$this->Html->tag('span', 'List'),
+												$this->Html->tag('span', 'Manufacturers'),
 												array('admin' => true,'controller'=>'manufacturers','action'=>'/'),
 												array('escape' => false)
 												);  ?>
