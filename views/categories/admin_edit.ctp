@@ -27,7 +27,7 @@
 			</div>
 			<div class="panel-footer">	
 				<div class="text-right">
-					<button class="btn btn-danger" type="submit">Save</button>
+					<button class="btn btn-danger" type="submit">Update</button>
 				</div>
 			</div>
 			<?php echo $this->Form->end();?>
