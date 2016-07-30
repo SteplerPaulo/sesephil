@@ -1,10 +1,12 @@
-<div ng-controller="AdminCategoriesController" ng-init="initializeController()">	
+<?php echo $this->Html->addCrumb('Dashboard','/admin/'); ?>
+<?php echo $this->Html->addCrumb('Categories',''); ?>
+<div ng-controller="AdminCategoriesController" ng-init="initializeController()">
 	<div class="row">
 		<div class="col-lg-4 col-md-4 col-xs-4">
 			<label for="search">Search</label>
 			<input ng-model="q" id="search" class="form-control input-sm" placeholder="Filter text">
 		</div>
-		<div class="col-lg-4  col-md-4 col-xs-4 col-lg-offset-4 col-md-offset-4 col-xs-offset-4 ">
+		<div class="col-lg-2 col-md-2 col-xs-2 col-lg-offset-6 col-md-offset-6 col-xs-offset-6">
 			<label for="search">Items per page</label>
 			<input type="number" min="1" max="100" class="form-control input-sm ng-pristine ng-valid ng-valid-number ng-valid-max ng-valid-min" ng-model="pageSize">
 		</div>
@@ -12,9 +14,14 @@
 
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-xs-12">
-			<table class="table table-bordered">
+			<table class="table table-striped table-hovered">
 				<thead>
+					<tr >
+						<th colspan="3">CATEGORIES</th>
+						<th colspan="1"><a href = "/sesephil/admin/categories/add" class="btn btn-sm btn-warning pull-right">Add New Category</a></th>
+					</tr>
 					<tr>
+						<th>ID</th>
 						<th>Name</th>
 						<th>Slug</th>
 						<th class="actions text-center">Action</th>
@@ -22,10 +29,11 @@
 				</thead>
 				<tbody>
 					<tr pagination-id="ProductListTable" dir-paginate="d in categories | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+						<td>{{d.Category.id}}</td>
 						<td>{{d.Category.name}}</td>
 						<td>{{d.Category.slug}}</td>
 						<td class="actions text-center">
-							<a data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
+							<a href="/sesephil/admin/categories/edit/{{d.Category.id}}" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
 						</td>
 					</tr>
 				</tbody>
