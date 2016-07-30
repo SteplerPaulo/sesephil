@@ -1,9 +1,12 @@
+<?php echo $this->Html->addCrumb('Dashboard','/admin/'); ?>
+<?php echo $this->Html->addCrumb('Products','/admin/products/'); ?>
+<?php echo $this->Html->addCrumb('Edit'); ?>
 <div class="row">
 	<div class="col-md-12">
 		<div class="login-panel panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title">	
-					<h4>Add Product</h4>
+					<h4>EDIT PRODUCT</h4>
 				</h3>
 			</div>
 			<?php echo $this->Form->create('Product');?>
@@ -32,6 +35,7 @@
 			</div>
 			<div class="panel-footer">	
 				<div class="text-right">
+					<a href="/sesephil/admin/products" class="btn btn-default" type="cancel">Cancel</a>
 					<button class="btn btn-primary" type="submit">Save</button>
 				</div>
 			</div>
@@ -39,20 +43,4 @@
 		</div>
 	</div>
 </div>
-
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('Product.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('Product.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Products', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Categories', true), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Category', true), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Manufacturers', true), array('controller' => 'manufacturers', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Manufacturer', true), array('controller' => 'manufacturers', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Product Images', true), array('controller' => 'product_images', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Product Image', true), array('controller' => 'product_images', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
-
 <?php echo $this->Html->script('biz/product_descriptions',array('inline'=>false));?>

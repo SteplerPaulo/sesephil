@@ -147,9 +147,9 @@
                     </li>
 					<li>
 						<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' =>'fa fa-question-circle')).'  &nbsp;'.
-							$this->Html->tag('span', 'Inquiries'),
-							array('admin' => true,'controller'=>'users','action'=>'/'),
-							array('escape' => false));						
+												$this->Html->tag('span', 'Inquiries'),
+												array('admin' => true,'controller'=>'inquiries','action'=>'/'),
+												array('escape' => false));						
 						?>
 					</li>
 					 <li>		

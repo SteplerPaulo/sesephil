@@ -1,22 +1,31 @@
-<div class="manufacturers form">
-<?php echo $this->Form->create('Manufacturer');?>
-	<fieldset>
-		<legend><?php __('Edit Manufacturer'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('name');
-		echo $this->Form->input('address');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
+<?php echo $this->Html->addCrumb('Dashboard','/admin/'); ?>
+<?php echo $this->Html->addCrumb('Manufacturers','/admin/manufacturers/'); ?>
+<?php echo $this->Html->addCrumb('Edit'); ?>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="login-panel panel panel-warning">
+			<div class="panel-heading">
+				<h3 class="panel-title">	
+					<h4>EDIT MANUFACTURER</h4>
+				</h3>
+			</div>
+			<?php echo $this->Form->create('Manufacturer');?>
+			<div class="panel-body">
+				<?php
+					echo $this->Form->input('id',array('class'=>'form-control'));
+					echo $this->Form->input('name',array('class'=>'form-control','required'=>'required','autocomplete'=>'off'));
+					echo $this->Form->input('address',array('type'=>'textarea','class'=>'form-control','required'=>'required'));
+				?>
+			</div>
+			<div class="panel-footer">	
+				<div class="text-right">
+					<a href="/sesephil/admin/manufacturers" class="btn btn-default" type="cancel">Cancel</a>
+					<button class="btn btn-danger" type="submit">Update</button>
+				</div>
+			</div>
+			<?php echo $this->Form->end();?>
+		</div>
+	</div>
 </div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('Manufacturer.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('Manufacturer.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Manufacturers', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Products', true), array('controller' => 'products', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Product', true), array('controller' => 'products', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+			
+			

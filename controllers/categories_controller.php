@@ -47,8 +47,9 @@ class CategoriesController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
+			$this->data ["Category"]['slug'] = preg_replace ('#[ -]+#','-', strtolower(trim($this->data ["Category"]['name'])));
 			if ($this->Category->save($this->data)) {
-				$this->Session->setFlash(__('The category has been saved', true));
+				$this->Session->setFlash(__('Category has been updated', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The category could not be saved. Please, try again.', true));

@@ -1,10 +1,12 @@
+<?php echo $this->Html->addCrumb('Dashboard','/admin/'); ?>
+<?php echo $this->Html->addCrumb('Users',''); ?>
 <div ng-controller="AdminUsersController" ng-init="initializeController()">	
 	<div class="row">
 		<div class="col-lg-4 col-md-4 col-xs-4">
 			<label for="search">Search</label>
 			<input ng-model="q" id="search" class="form-control input-sm" placeholder="Filter text">
 		</div>
-		<div class="col-lg-4  col-md-4 col-xs-4 col-lg-offset-4 col-md-offset-4 col-xs-offset-4 ">
+		<div class="col-lg-2 col-md-2 col-xs-2 col-lg-offset-6 col-md-offset-6 col-xs-offset-6">
 			<label for="search">Items per page</label>
 			<input type="number" min="1" max="100" class="form-control input-sm ng-pristine ng-valid ng-valid-number ng-valid-max ng-valid-min" ng-model="pageSize">
 		</div>
@@ -12,9 +14,13 @@
 
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-xs-12">
-			<table class="table table-bordered">
+			<table class="table table-striped table-hovered">
 				<thead>
 					<tr>
+						<th colspan="4">USERS</th>
+					</tr>
+					<tr>
+						<th>ID</th>
 						<th>Username</th>
 						<th>Full Name</th>
 						<th class="actions text-center">Action</th>
@@ -22,6 +28,7 @@
 				</thead>
 				<tbody>
 					<tr pagination-id="ProductListTable" dir-paginate="d in users | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+						<td>{{d.User.id}}</td>
 						<td>{{d.User.username}}</td>
 						<td>{{d.User.full_name}}</td>
 						<td class="actions text-center">

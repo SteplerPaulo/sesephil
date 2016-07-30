@@ -35,6 +35,7 @@
 			</div>
 			<div class="panel-footer">	
 				<div class="text-right">
+					<a href="/sesephil/admin/products" class="btn btn-default" type="cancel">Cancel</a>
 					<button class="btn btn-primary" type="submit">Save</button>
 				</div>
 			</div>

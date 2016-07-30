@@ -22,6 +22,7 @@ class ManufacturersController extends AppController {
 	}
 	
 	function admin_add() {
+		$this->layout = 'admin_default';
 		if (!empty($this->data)) {
 			$this->data['Manufacturer']['slug'] = preg_replace('#[ -\.]+#', '-', strtolower(trim($this->data['Manufacturer']['name'])));
 			
@@ -36,16 +37,17 @@ class ManufacturersController extends AppController {
 	}
 	
 	function admin_edit($id = null) {
+		$this->layout = 'admin_default';
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid manufacturer', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Manufacturer->save($this->data)) {
-				$this->Session->setFlash(__('The manufacturer has been saved', true));
+				$this->Session->setFlash(__('Manufacturer has been updated', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The manufacturer could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('Manufacturer could not be saved. Please, try again.', true));
 			}
 		}
 		if (empty($this->data)) {

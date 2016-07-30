@@ -15,7 +15,7 @@
 		<div class="col-lg-12 col-md-12 col-xs-12">
 			<table class="table table-striped table-hovered">
 				<thead>
-					<tr >
+					<tr>
 						<th colspan="4">PRODUCTS</th>
 						<th colspan="1"><a href = "/sesephil/admin/products/add" class="btn btn-sm btn-warning pull-right">Add New Product</a></th>
 					</tr>
