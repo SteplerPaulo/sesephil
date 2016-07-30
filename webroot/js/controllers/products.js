@@ -8,5 +8,10 @@ App.controller('ProductsController',function($scope,$rootScope,$http,$filter){
 			$scope.products = response;
 			console.log($scope.products);
 		});
+		
+		$http.get("/sesephil/categories/main_children").success(function(response) {
+			$scope.categories = response;
+			
+		});
 	}
 });
