@@ -12,8 +12,6 @@ class CategoriesController extends AppController {
 
 	function admin_index() {
 		$this->layout = "admin_default";
-		$this->Category->recursive = 0;
-		$this->set('categories', $this->paginate());
 	}
 
 	function admin_view($id = null) {
@@ -25,6 +23,7 @@ class CategoriesController extends AppController {
 	}
 
 	function admin_add() {
+		$this->layout = "admin_default";
 		if (!empty($this->data)) {
 			$this->data ["Category"]['slug'] = preg_replace ('#[ -]+#','-', strtolower(trim($this->data ["Category"]['name'])));
 			
@@ -37,14 +36,12 @@ class CategoriesController extends AppController {
 				$this->Session->setFlash(__('The category could not be saved. Please, try again.', true));
 			}
 		}
-		$categories = $this->Category->find('list');
-	
-		
-		
+		$categories = $this->Category->find('list', array('recursive' => -1,'conditions' =>array('Category.id' => 1)));
 		$this->set(compact('categories'));
 	}
 
 	function admin_edit($id = null) {
+		$this->layout = "admin_default";
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid category', true));
 			$this->redirect(array('action' => 'index'));
@@ -60,8 +57,8 @@ class CategoriesController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Category->read(null, $id);
 		}
-		$parentCategories = $this->Category->ParentCategory->find('list');
-		$this->set(compact('parentCategories'));
+		$categories = $this->Category->find('list', array('recursive' => -1,'conditions' =>array('Category.id' => 1)));
+		$this->set(compact('categories'));
 	}
 
 	function admin_delete($id = null) {
