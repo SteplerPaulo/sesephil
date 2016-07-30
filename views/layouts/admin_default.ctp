@@ -145,28 +145,65 @@
 							array('escape' => false));						
 						?>
 					</li>
-					<li>
-						<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-dropbox')).' '.
-												$this->Html->tag('span', 'Products'),
-												array('admin' => true,'controller'=>'products','action'=>'/'),
-												array('escape' => false)
-												);  ?>
-                    </li>
 					
 					<li>
-						<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-tags')).' '.
-							$this->Html->tag('span', 'Categories'),
-							array('admin' => true,'controller'=>'categories','action'=>'/'),
-							array('escape' => false));						
-						?>
-					</li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#ProductsLink" class="" aria-expanded="true"><i class="fa fa-fw fa-dropbox"></i> Products <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="ProductsLink" class="collapse in" aria-expanded="true">
+                            <li>		
+								<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-list-alt')).' '.
+														$this->Html->tag('span', 'List'),
+														array('admin' => true,'controller'=>'products','action'=>'/'),
+														array('escape' => false)
+														);  ?>
+                            </li>
+                            <li>
+                                <?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-plus-circle')).' '.
+														$this->Html->tag('span', 'Add'),
+														array('admin' => true,'controller'=>'products','action'=>'add'),
+														array('escape' => false)
+														);  ?>
+                            </li>
+                        </ul>
+                    </li>
 					<li>
-						<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' =>'fa fa-truck')).' '.
-							$this->Html->tag('span', 'Manufacturers'),
-							array('admin' => true,'controller'=>'manufacturers','action'=>'/'),
-							array('escape' => false));						
-						?>
-					</li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#CategoriesLink" class="" aria-expanded="true"><i class="fa fa-fw fa-tags"></i> Categories <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="CategoriesLink" class="collapse in" aria-expanded="true">
+                            <li>		
+								<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-list-alt')).' '.
+														$this->Html->tag('span', 'List'),
+														array('admin' => true,'controller'=>'categories','action'=>'/'),
+														array('escape' => false)
+														);  ?>
+                            </li>
+                            <li>
+                                <?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-plus-circle')).' '.
+														$this->Html->tag('span', 'Add'),
+														array('admin' => true,'controller'=>'categories','action'=>'add'),
+														array('escape' => false)
+														);  ?>
+                            </li>
+                        </ul>
+                    </li>
+					<li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#ManufacturersLink" class="" aria-expanded="true"><i class="fa fa-fw fa-truck"></i> Manufacturers <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="ManufacturersLink" class="collapse in" aria-expanded="true">
+                            <li>		
+								<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-list-alt')).' '.
+														$this->Html->tag('span', 'List'),
+														array('admin' => true,'controller'=>'manufacturers','action'=>'/'),
+														array('escape' => false)
+														);  ?>
+                            </li>
+                            <li>
+                                <?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-plus-circle')).' '.
+														$this->Html->tag('span', 'Add'),
+														array('admin' => true,'controller'=>'manufacturers','action'=>'add'),
+														array('escape' => false)
+														);  ?>
+                            </li>
+                        </ul>
+                    </li>
+					
 					<li>
 						<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' =>'fa fa-users')).' '.
 							$this->Html->tag('span', 'Users'),
