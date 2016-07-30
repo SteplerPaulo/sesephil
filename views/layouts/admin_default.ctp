@@ -147,8 +147,8 @@
 					</li>
 					
 					<li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#ProductsLink" class="" aria-expanded="true"><i class="fa fa-fw fa-dropbox"></i> Products <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="ProductsLink" class="collapse in" aria-expanded="true">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#ProductsLink" class="" aria-expanded="false"><i class="fa fa-fw fa-dropbox"></i> Products <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="ProductsLink" class="collapse" aria-expanded="true">
                             <li>		
 								<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-list-alt')).' '.
 														$this->Html->tag('span', 'List'),
@@ -167,7 +167,7 @@
                     </li>
 					<li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#CategoriesLink" class="" aria-expanded="true"><i class="fa fa-fw fa-tags"></i> Categories <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="CategoriesLink" class="collapse in" aria-expanded="true">
+                        <ul id="CategoriesLink" class="collapse" aria-expanded="true">
                             <li>		
 								<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-list-alt')).' '.
 														$this->Html->tag('span', 'List'),
@@ -186,7 +186,7 @@
                     </li>
 					<li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#ManufacturersLink" class="" aria-expanded="true"><i class="fa fa-fw fa-truck"></i> Manufacturers <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="ManufacturersLink" class="collapse in" aria-expanded="true">
+                        <ul id="ManufacturersLink" class="collapse" aria-expanded="true">
                             <li>		
 								<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-list-alt')).' '.
 														$this->Html->tag('span', 'List'),
