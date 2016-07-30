@@ -1,3 +1,6 @@
+<?php echo $this->Html->addCrumb('Dashboard','/admin/'); ?>
+<?php echo $this->Html->addCrumb('Products','/admin/products/'); ?>
+<?php echo $this->Html->addCrumb('Add'); ?>
 <div class="row">
 	<div class="col-md-12">
 		<div class="login-panel panel panel-default">
