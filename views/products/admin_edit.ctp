@@ -13,15 +13,15 @@
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-lg-6">
-						<?php	echo $this->Form->input('name',array('class'=>'form-control'));?>
+						<?php	echo $this->Form->input('name',array('class'=>'form-control','required'=>'required','autocomplete'=>'off'));?>
 					</div>
 					<div class="col-lg-3">
 					
-						<?php	echo $this->Form->input('category_id',array('class'=>'form-control'));?>
+						<?php	echo $this->Form->input('category_id',array('empty'=>'Select','class'=>'form-control','required'=>'required'));?>
 					</div>
 					<div class="col-lg-3">
 					
-						<?php	echo $this->Form->input('manufacturer_id',array('class'=>'form-control'));?>
+						<?php	echo $this->Form->input('manufacturer_id',array('empty'=>'Select','class'=>'form-control','required'=>'required'));?>
 					</div>
 				</div>
 				<div class="row">

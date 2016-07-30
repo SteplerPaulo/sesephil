@@ -43,6 +43,8 @@ class ManufacturersController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
+			$this->data['Manufacturer']['slug'] = preg_replace('#[ -\.]+#', '-', strtolower(trim($this->data['Manufacturer']['name'])));
+			
 			if ($this->Manufacturer->save($this->data)) {
 				$this->Session->setFlash(__('Manufacturer has been updated', true));
 				$this->redirect(array('action' => 'index'));

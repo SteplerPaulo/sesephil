@@ -38,8 +38,6 @@ class ProductsController extends AppController {
 	function admin_add() {
 		$this->layout ="admin_default";	
 		if (!empty($this->data)) {
-			
-		
 			$this->data ["Product"]['slug'] = preg_replace ('#[ -]+#','-', strtolower(trim($this->data ["Product"]['name'])));
 		
 			$this->Product->create();
@@ -50,7 +48,7 @@ class ProductsController extends AppController {
 				$this->Session->setFlash(__('The product could not be saved. Please, try again.', true));
 			}
 		}
-		$categories = $this->Product->Category->find('list');
+		$categories = $this->Product->Category->find('list',array('conditions' =>array('Category.parent_id' => 1)));
 		$manufacturers = $this->Product->Manufacturer->find('list');
 		$this->set(compact('categories', 'manufacturers'));
 	}
@@ -63,6 +61,7 @@ class ProductsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
+			$this->data ["Product"]['slug'] = preg_replace ('#[ -]+#','-', strtolower(trim($this->data ["Product"]['name'])));
 			if ($this->Product->save($this->data)) {
 				$this->Session->setFlash(__('The product has been saved', true));
 				$this->redirect(array('action' => 'index'));
@@ -73,7 +72,7 @@ class ProductsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Product->read(null, $id);
 		}
-		$categories = $this->Product->Category->find('list');
+		$categories = $this->Product->Category->find('list',array('recursive' => -1,'conditions' =>array('Category.parent_id' => 1)));
 		$manufacturers = $this->Product->Manufacturer->find('list');
 		$this->set(compact('categories', 'manufacturers'));
 	}
