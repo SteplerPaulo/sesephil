@@ -1,25 +1,36 @@
-<div class="categories form">
-<?php echo $this->Form->create('Category');?>
-	<fieldset>
-		<legend><?php __('Admin Edit Category'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('parent_id');
-		echo $this->Form->input('lft');
-		echo $this->Form->input('rght');
-		echo $this->Form->input('name');
-		echo $this->Form->input('slug');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('Category.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('Category.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Categories', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Categories', true), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Parent Category', true), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-	</ul>
+<?php echo $this->Html->addCrumb('Dashboard','/admin/'); ?>
+<?php echo $this->Html->addCrumb('Categories','/admin/categories/'); ?>
+<?php echo $this->Html->addCrumb('Edit'); ?>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="login-panel panel panel-warning">
+			<div class="panel-heading">
+				<h3 class="panel-title">	
+					<h4>Edit Category</h4>
+				</h3>
+			</div>
+			<?php echo $this->Form->create('Category');?>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-lg-2">
+						<?php echo $this->Form->input('id',array('class'=>'form-control'));?>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-9">
+						<?php echo $this->Form->input('name',array('class'=>'form-control'));?>
+					</div>
+					<div class="col-lg-3">
+						<?php echo $this->Form->input('parent_id',array('options'=>$categories,'class'=>'form-control'));?>
+					</div>
+				</div>
+			</div>
+			<div class="panel-footer">	
+				<div class="text-right">
+					<button class="btn btn-danger" type="submit">Save</button>
+				</div>
+			</div>
+			<?php echo $this->Form->end();?>
+		</div>
+	</div>
 </div>
