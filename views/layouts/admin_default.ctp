@@ -41,10 +41,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SESEPHIL Admin</a>
+                <a class="navbar-brand">SESEPHIL Admin</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
+				<li>
+					<?php  echo $this->Html->
+									link($this->Html->tag('i', '', array('class' => 'fa fa-home')),
+									array('admin' => false,'controller'=>'pages','action'=>'/'),
+									array('escape' => false,'class'=>'navbar-brand company-name')
+									);  ?>
+				</li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu message-dropdown">
@@ -139,70 +146,33 @@
 												);  ?>
                     </li>
 					<li>
-						<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' =>'fa fa-question-circle')).' '.
+						<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' =>'fa fa-question-circle')).'  &nbsp;'.
 							$this->Html->tag('span', 'Inquiries'),
 							array('admin' => true,'controller'=>'users','action'=>'/'),
 							array('escape' => false));						
 						?>
 					</li>
-					
-					<li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#ProductsLink" class="" aria-expanded="false"><i class="fa fa-fw fa-dropbox"></i> Products <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="ProductsLink" class="collapse" aria-expanded="true">
-                            <li>		
-								<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-list-alt')).' '.
-														$this->Html->tag('span', 'List'),
-														array('admin' => true,'controller'=>'products','action'=>'/'),
-														array('escape' => false)
-														);  ?>
-                            </li>
-                            <li>
-                                <?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-plus-circle')).' '.
-														$this->Html->tag('span', 'Add'),
-														array('admin' => true,'controller'=>'products','action'=>'add'),
-														array('escape' => false)
-														);  ?>
-                            </li>
-                        </ul>
-                    </li>
-					<li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#CategoriesLink" class="" aria-expanded="true"><i class="fa fa-fw fa-tags"></i> Categories <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="CategoriesLink" class="collapse" aria-expanded="true">
-                            <li>		
-								<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-list-alt')).' '.
-														$this->Html->tag('span', 'List'),
-														array('admin' => true,'controller'=>'categories','action'=>'/'),
-														array('escape' => false)
-														);  ?>
-                            </li>
-                            <li>
-                                <?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-plus-circle')).' '.
-														$this->Html->tag('span', 'Add'),
-														array('admin' => true,'controller'=>'categories','action'=>'add'),
-														array('escape' => false)
-														);  ?>
-                            </li>
-                        </ul>
-                    </li>
-					<li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#ManufacturersLink" class="" aria-expanded="true"><i class="fa fa-fw fa-truck"></i> Manufacturers <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="ManufacturersLink" class="collapse" aria-expanded="true">
-                            <li>		
-								<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-list-alt')).' '.
-														$this->Html->tag('span', 'List'),
-														array('admin' => true,'controller'=>'manufacturers','action'=>'/'),
-														array('escape' => false)
-														);  ?>
-                            </li>
-                            <li>
-                                <?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-plus-circle')).' '.
-														$this->Html->tag('span', 'Add'),
-														array('admin' => true,'controller'=>'manufacturers','action'=>'add'),
-														array('escape' => false)
-														);  ?>
-                            </li>
-                        </ul>
-                    </li>
+					 <li>		
+						<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-dropbox')).' '.
+												$this->Html->tag('span', 'Products'),
+												array('admin' => true,'controller'=>'products','action'=>'/'),
+												array('escape' => false)
+												);  ?>
+					</li>
+					<li>		
+						<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-tags')).' '.
+												$this->Html->tag('span', 'Categories'),
+												array('admin' => true,'controller'=>'categories','action'=>'/'),
+												array('escape' => false)
+												);  ?>
+					</li>
+					<li>		
+						<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-truck')).' '.
+												$this->Html->tag('span', 'List'),
+												array('admin' => true,'controller'=>'manufacturers','action'=>'/'),
+												array('escape' => false)
+												);  ?>
+					</li>
 					<li>		
 						<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-users')).' '.
 												$this->Html->tag('span', 'Users'),
@@ -218,6 +188,7 @@
             <div class="container-fluid">
 				<?php echo $this->Session->flash(); ?>
 				<?php echo $this->Session->flash('email'); ?>
+				<div class="breadcrumb"><?php echo $this->Html->getCrumbs(' <i class="fa fa-chevron-circle-right" aria-hidden="true"></i> ','Home Page'); ?></div>
 				<?php echo $content_for_layout; ?>
             </div>
         </div>
