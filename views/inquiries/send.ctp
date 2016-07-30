@@ -19,12 +19,11 @@
 .like-input-box ul li{
 	list-style:none;
 }
-
 </style>
 <div class="row">
 	<?php echo $this->Form->create('Inquiry',array('enctype' => 'multipart/form-data'));?>
 	<div class="col-md-8 col-md-offset-2">
-		<h4>Send Inquiry</h4>
+		<h4>SEND INQUIRY</h4>
 		<div class="row">
 			<div class="col-md-12">
 				<?php echo $this->Form->input('from',array('class'=>'form-control','placeholder'=>'Enter your email address','required'=>'required'));?>
