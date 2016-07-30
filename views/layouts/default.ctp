@@ -30,8 +30,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+	<link href="/sesephil/img/company logo/1.png" type="image/x-icon" rel="icon">
+	<link href="/sesephil/img/company logo/1.png" type="image/x-icon" rel="shortcut icon">
 	<?php
-		echo $this->Html->meta('icon');
+		//echo $this->Html->meta('icon');
 		echo $this->Html->css('bootstrap.min'); //Bootstrap Core CSS
 		echo $this->Html->css('sesephil'); //Custom CSS
 		echo $this->Html->css('template\font-awesome-4.4.0\css\font-awesome'); //Custom Fonts
@@ -57,7 +59,6 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					
 					<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-heartbeat')).' '.
 									$this->Html->tag('span', 'South East Star Enterprises'),
 									array('admin' => false,'controller'=>'pages','action'=>'/'),
