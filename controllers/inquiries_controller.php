@@ -4,66 +4,16 @@ class InquiriesController extends AppController {
 	var $name = 'Inquiries';
 	var $uses = array('Inquiry','Product');
 	var $components = array('Email');
-
-	function index() {
-		$this->Inquiry->recursive = 0;
-		$this->set('inquiries', $this->paginate());
-	}
-
-	function view($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid inquiry', true));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->set('inquiry', $this->Inquiry->read(null, $id));
-	}
-
-	function add() {
-		if (!empty($this->data)) {
-			$this->Inquiry->create();
-			if ($this->Inquiry->save($this->data)) {
-				$this->Session->setFlash(__('The inquiry has been saved', true));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The inquiry could not be saved. Please, try again.', true));
-			}
-		}
-	}
-
-	function edit($id = null) {
-		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid inquiry', true));
-			$this->redirect(array('action' => 'index'));
-		}
-		if (!empty($this->data)) {
-			if ($this->Inquiry->save($this->data)) {
-				$this->Session->setFlash(__('The inquiry has been saved', true));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The inquiry could not be saved. Please, try again.', true));
-			}
-		}
-		if (empty($this->data)) {
-			$this->data = $this->Inquiry->read(null, $id);
-		}
-	}
-
-	function delete($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for inquiry', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		if ($this->Inquiry->delete($id)) {
-			$this->Session->setFlash(__('Inquiry deleted', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(__('Inquiry was not deleted', true));
-		$this->redirect(array('action' => 'index'));
-	}
+	var $helpers = array('Access');
 	
+	function beforeFilter(){ 
+		parent::beforeFilter();
+		$this->Auth->userModel = 'User'; 
+		$this->Auth->allow(array('send','send_mail_using_smtp'));	
+    } 
+
 	function admin_index() {
-		$this->Inquiry->recursive = 0;
-		$this->set('inquiries', $this->paginate());
+		$this->layout = 'admin_default';
 	}
 
 	function admin_view($id = null) {
@@ -166,12 +116,6 @@ class InquiriesController extends AppController {
 		
 	}
 	
-	//CREATING NEW FOLDER SAMPLE
-	function create_directory(){
-		$dir = new Folder(WWW_ROOT . 'img' . DS . 'inquiry files'. DS . 'Inquiry ID 2', true);
-		//pr(WWW_ROOT . 'img' . DS . 'inquiry files'. DS . 'Inquiry ID 2'.'/');exit;
-	}
-		
 	function send_mail_using_smtp($from,$subject,$body,$attachement = null){
 		
 		//pr($from);
@@ -179,9 +123,8 @@ class InquiriesController extends AppController {
 		//pr($content);
 		//pr($attachement['name']);
 		//pr('C:\wamp\www\sesephil\webroot\img\inquiry files\Inquiry ID 1/'.$attachement['name']);
-		
 		//exit;
-		
+	
 		
 		$this->Email->smtpOptions = array( 
 			'port'=>'465',
@@ -213,6 +156,12 @@ class InquiriesController extends AppController {
 		$this->set(compact('smtp_errors'));
 	}
 	
+	//CREATING NEW FOLDER SAMPLE
+	function create_directory(){
+		$dir = new Folder(WWW_ROOT . 'img' . DS . 'inquiry files'. DS . 'Inquiry ID 2', true);
+		//pr(WWW_ROOT . 'img' . DS . 'inquiry files'. DS . 'Inquiry ID 2'.'/');exit;
+	}
+	//TEST SMTP
 	function test_smtp(){
 		$from = 'pkerroj@gmail.com';
 		$subject = 'TEST SMTP';

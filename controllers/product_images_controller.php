@@ -2,6 +2,7 @@
 class ProductImagesController extends AppController {
 
 	var $name = 'ProductImages';
+	var $helpers = array('Access');
 
 	function index() {
 		$this->ProductImage->recursive = 0;

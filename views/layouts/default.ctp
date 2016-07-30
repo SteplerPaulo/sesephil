@@ -35,6 +35,7 @@
 		echo $this->Html->css('bootstrap.min'); //Bootstrap Core CSS
 		echo $this->Html->css('sesephil'); //Custom CSS
 		echo $this->Html->css('template\font-awesome-4.4.0\css\font-awesome'); //Custom Fonts
+		echo $this->Html->css('plugins/summernote');
 	?>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,7 +45,7 @@
     <![endif]-->
 </head>
 <body>
-    <div ng-app="App">
+    <div ng-app="App" id="wrap">
         <!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container">
@@ -67,40 +68,59 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						
-						<li>
-							<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-dropbox')).' '.
-								$this->Html->tag('span', 'Product'),
-								array('admin' => false,'controller'=>'products','action'=>'/'),
-								array('escape' => false));						
-							?>
-						</li>
-						<li>
-							<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' =>'fa fa-info-circle')).' '.
-								$this->Html->tag('span', 'About'),
-								array('admin' => false,'controller'=>'pages','action'=>'/about'),
-								array('escape' => false));						
-							?>
-						</li>
-						<li>
-							<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' =>'fa fa-phone-square')).' '.
-								$this->Html->tag('span', 'Contact'),
-								array('admin' => false,'controller'=>'pages','action'=>'/contact'),
-								array('escape' => false));						
-							?>
-						</li>
+						
+		
+							<li>
+								<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-dropbox')).' '.
+									$this->Html->tag('span', 'Product'),
+									array('admin' => false,'controller'=>'products','action'=>'/'),
+									array('escape' => false));						
+								?>
+							</li>
+							<li>
+								<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' =>'fa fa-info-circle')).' '.
+									$this->Html->tag('span', 'About Us'),
+									array('admin' => false,'controller'=>'pages','action'=>'/about-us'),
+									array('escape' => false));						
+								?>
+							</li>
+							<li>
+								<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' =>'fa fa-phone-square')).' '.
+									$this->Html->tag('span', 'Contact'),
+									array('admin' => false,'controller'=>'pages','action'=>'/contact'),
+									array('escape' => false));						
+								?>
+							</li>
+					
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
 			</div>
 			<!-- /.container -->
 		</nav>
-
         <div id="ContentForLayoutContainer" class="container">
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->Session->flash('email'); ?>
 			<?php echo $content_for_layout; ?>
         </div>
     </div>
+	<div id="footer">
+		<div class="container" style="padding-top: 10px;">
+			<p class="text-muted credit">Powered by <a href="#">P'KerRoj Technology</a>.
+				<span class="pull-right">
+					<?php  echo $this->Html->link(
+										$this->Html->tag('span', 'Register'),
+										array('admin' => false,'controller'=>'users','action'=>'register'),
+										array('escape' => false));						
+									?> | <?php  echo $this->Html->link(
+										$this->Html->tag('span', 'Sign In'),
+										array('admin' => false,'controller'=>'users','action'=>'login'),
+										array('escape' => false));						
+									?>
+				</span>
+			</p>
+		</div>
+	</div>
 	<?php
 		echo $this->Html->script(array('jquery')); 
 		echo $this->Html->script(array('bootstrap.min')); //Bootstrap Core JavaScript
@@ -108,6 +128,7 @@
 		echo $this->Html->script(array('template/angular-sanitize'));
 		echo $this->Html->script(array('angularUtils/directives/dirPagination'));
 		echo $this->Html->script(array('angularUtils/directives/ui-bootstrap-tpls-0.14.3.min'));
+		echo $this->Html->script('plugins/summernote');
 	?>
 	<script type="text/javascript">(function(){window.App = angular.module('App',['angularUtils.directives.dirPagination','ngSanitize'])})();</script>
 	<?php  echo $scripts_for_layout; ?>

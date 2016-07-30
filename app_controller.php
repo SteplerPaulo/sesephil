@@ -31,4 +31,33 @@
  * @subpackage    cake.app
  */
 class AppController extends Controller {
+	
+	public $components = array(
+		'RequestHandler',
+        'Session',
+		'Acl',
+		'Access',
+        'Auth' => array(
+            'loginRedirect' => array(
+                'controller' => 'users',
+                'action' => 'dashboard'
+            ),
+            'logoutRedirect' => array(
+                'controller' => 'pages',
+                'action' => '/'
+            ),
+			'authorize '=>'controller',
+			'admin' => true,
+			
+        ), 
+    );
+	
+		
+	function beforeFilter() {
+		if ($this->params['controller'] == 'pages') {
+			$this->Auth->allow('*'); 
+			return;
+		}
+	}
+	
 }

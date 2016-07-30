@@ -2,6 +2,7 @@
 class InquiryFilesController extends AppController {
 
 	var $name = 'InquiryFiles';
+	var $helpers = array('Access');
 
 	function index() {
 		$this->InquiryFile->recursive = 0;

@@ -19,7 +19,7 @@
 				</button>
 			</form>
 			
-			<pre><?php echo $product['Product']['description']; ?></pre>
+			<?php echo $product['Product']['description']; ?>
 			<div class="caption">
 				<dl>
 				  <dt>Manufactured by:</dt>

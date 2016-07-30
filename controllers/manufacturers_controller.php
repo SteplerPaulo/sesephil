@@ -2,6 +2,7 @@
 class ManufacturersController extends AppController {
 
 	var $name = 'Manufacturers';
+	var $helpers = array('Access');
 
 	function index() {
 		$this->Manufacturer->recursive = 0;
@@ -16,6 +17,10 @@ class ManufacturersController extends AppController {
 		$this->set('manufacturer', $this->Manufacturer->read(null, $id));
 	}
 
+	function admin_index() {
+		$this->layout = 'admin_default';
+	}
+	
 	function admin_add() {
 		if (!empty($this->data)) {
 			$this->data['Manufacturer']['slug'] = preg_replace('#[ -\.]+#', '-', strtolower(trim($this->data['Manufacturer']['name'])));
@@ -77,5 +82,12 @@ class ManufacturersController extends AppController {
 			echo 'The manufacturer slug could not be saved. Please, try again.';
 			exit;
 		}
+	}
+
+	function all(){
+		$manufacturers = $this->Manufacturer->find('all');
+		echo json_encode($manufacturers);
+		exit;
+		
 	}
 }

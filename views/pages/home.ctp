@@ -85,6 +85,7 @@
 
 		</section>
 		<section class="col-md-3">
+			<!--
 			<a class="list-group-item row">
 				<div class="col-xs-2  col-sm-2 col-md-12 col-lg-12"><h4>Category</h4></div>
 			</a>
@@ -96,6 +97,21 @@
 				
 			</a>
 			<p ng-bind-html="myText"></p>
+			-->
+			
+			<table class="table table-hover">
+				<thead>
+					<th>CATEGORIES</th>
+				<thead>
+				<tbody>
+					<tr  pagination-id="CategoryList" dir-paginate="d in categories | filter:q | itemsPerPage: categoryLimit">
+						<td>
+							<a href="/sesephil/categories/view/{{d.Category.slug}}"  >{{d.Category.name}}</a>
+						
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</section>
 	</div>
 </div>

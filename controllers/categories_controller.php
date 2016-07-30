@@ -2,71 +2,16 @@
 class CategoriesController extends AppController {
 
 	var $name = 'Categories';
+	var $helpers = array('Access');
+	
+	function beforeFilter(){ 
+		parent::beforeFilter();
+		$this->Auth->userModel = 'User'; 
+		$this->Auth->allow(array('main_children'));	
+    } 
 
-	function index() {
-		//$this->data = $this->Category->generatetreelist(null, null, null, '&nbsp;&nbsp;&nbsp;');
-       //debug ($this->data); die;
-		
-		$this->Category->recursive = 0;
-		$this->set('categories', $this->paginate());
-	}
-
-	function view($slug = null) {
-		if (!$slug) {
-			$this->Session->setFlash(__('Invalid category', true));
-			$this->redirect(array('action' => 'index'));
-		}
-		
-		$this->set('category', $this->Category->findBySlug($slug));
-	}
-
-	function add() {
-		if (!empty($this->data)) {
-			$this->Category->create();
-			if ($this->Category->save($this->data)) {
-				$this->Session->setFlash(__('The category has been saved', true));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The category could not be saved. Please, try again.', true));
-			}
-		}
-		$parentCategories = $this->Category->ParentCategory->find('list');
-		$this->set(compact('parentCategories'));
-	}
-
-	function edit($id = null) {
-		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid category', true));
-			$this->redirect(array('action' => 'index'));
-		}
-		if (!empty($this->data)) {
-			if ($this->Category->save($this->data)) {
-				$this->Session->setFlash(__('The category has been saved', true));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The category could not be saved. Please, try again.', true));
-			}
-		}
-		if (empty($this->data)) {
-			$this->data = $this->Category->read(null, $id);
-		}
-		$parentCategories = $this->Category->ParentCategory->find('list');
-		$this->set(compact('parentCategories'));
-	}
-
-	function delete($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for category', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		if ($this->Category->delete($id)) {
-			$this->Session->setFlash(__('Category deleted', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(__('Category was not deleted', true));
-		$this->redirect(array('action' => 'index'));
-	}
 	function admin_index() {
+		$this->layout = "admin_default";
 		$this->Category->recursive = 0;
 		$this->set('categories', $this->paginate());
 	}
@@ -133,6 +78,9 @@ class CategoriesController extends AppController {
 	}
 	
 	function main_children(){
+		//$this->data = $this->Category->generatetreelist(null, null, null, '&nbsp;&nbsp;&nbsp;');
+       //debug ($this->data); die;
+		
 		$categories = $this->Category->find('threaded', array('conditions' => array('Category.parent_id' => 1)));
 		echo json_encode($categories);
 		exit;

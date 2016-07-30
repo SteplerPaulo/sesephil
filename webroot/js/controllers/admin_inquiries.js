@@ -1,4 +1,4 @@
-App.controller('InquiriesController',function($scope,$rootScope,$http,$filter){
+App.controller('AdminInquiriesController',function($scope,$rootScope,$http,$filter){
 	
 	$scope.initializeController = function(){
 		$scope.currentPage = 1; 

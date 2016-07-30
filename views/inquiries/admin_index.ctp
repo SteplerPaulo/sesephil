@@ -1,4 +1,4 @@
-<div ng-controller="InquiriesController" ng-init="initializeController()">	
+<div ng-controller="AdminInquiriesController" ng-init="initializeController()">	
 	<div class="row">
 		<div class="col-lg-4 col-md-4 col-xs-4">
 			<label for="search">Search</label>
@@ -39,4 +39,4 @@
 		</tfoot>
 	</table>	
 </div>
-<?php echo $this->Html->script('controllers/inquiries',array('inline'=>false));?>
+<?php echo $this->Html->script('controllers/admin_inquiries',array('inline'=>false));?>
