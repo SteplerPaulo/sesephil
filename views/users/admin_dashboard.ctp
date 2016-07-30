@@ -1,4 +1,4 @@
-
+<?php echo $this->Html->addCrumb('Dashboard'); ?>
 <!-- Page Heading -->
 <div class="row">
 	<div class="col-lg-12">
@@ -13,7 +13,6 @@
 	</div>
 </div>
 <!-- /.row -->
-
 <div class="row">
 	<div class="col-lg-12">
 		<div class="alert alert-info alert-dismissable">
@@ -23,7 +22,6 @@
 	</div>
 </div>
 <!-- /.row -->
-
 <div class="row">
 	<div class="col-lg-3 col-md-6">
 		<div class="panel panel-primary">
@@ -115,7 +113,6 @@
 	</div>
 </div>
 <!-- /.row -->
-
 <div class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
@@ -129,7 +126,6 @@
 	</div>
 </div>
 <!-- /.row -->
-
 <div class="row">
 	<div class="col-lg-4">
 		<div class="panel panel-default">
@@ -266,7 +262,6 @@
 	</div>
 </div>
 <!-- /.row -->
-
 <?php echo $this->Html->script('plugins/morris/raphael.min',array('inline'=>false));?>
 <?php echo $this->Html->script('plugins/morris/morris.min',array('inline'=>false));?>
 <?php echo $this->Html->script('plugins/morris/morris-data',array('inline'=>false));?>
