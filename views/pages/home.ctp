@@ -60,7 +60,7 @@
 						<img src="http://placehold.it/320x150" ng-if="!d.ProductImage.length" style="height:150px;">
 						<div class="caption">
 							<h4>
-								<a href="#">{{d.Product.name}}</a>
+								<a href="/sesephil/product/{{d.Product.slug}}">{{d.Product.name}}</a>
 							</h4>
 							<p>
 							<dl>
@@ -94,7 +94,6 @@
 					<i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
 				</div>
 				<div class="col-xs-4 col-sm-4 col-md-10 col-lg-10 ellipsis">{{d.Category.name}}</div>
-				
 			</a>
 			<p ng-bind-html="myText"></p>
 			-->
@@ -104,10 +103,9 @@
 					<th>CATEGORIES</th>
 				<thead>
 				<tbody>
-					<tr  pagination-id="CategoryList" dir-paginate="d in categories | filter:q | itemsPerPage: categoryLimit">
+					<tr pagination-id="CategoryList" dir-paginate="d in categories | filter:q | itemsPerPage: categoryLimit">
 						<td>
-							<a href="/sesephil/categories/view/{{d.Category.slug}}"  >{{d.Category.name}}</a>
-						
+							<a href="/sesephil/products/{{d.Category.slug}}"  >{{d.Category.name}}</a>
 						</td>
 					</tr>
 				</tbody>
