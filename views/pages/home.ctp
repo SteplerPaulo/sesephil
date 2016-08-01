@@ -76,10 +76,27 @@
 					</div>
 				</div>
 				<div class="col-sm-4 col-lg-4 col-md-4">
-					<h4><a href="#">Like this template?</a>
+					<h4><a href="javascript:void(0)">Want to Call or Chat our costumer service representative?</a>
 					</h4>
-					<p>If you like this template, then check out <a target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this tutorial</a> on how to build a working review system for your online store!</p>
-					<a class="btn btn-primary btn-sm" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
+					<p>
+						What do I need to start contacting SESEPHIL using Skype?
+						<br/><br/>
+						All you need to get up and running with Skype is an internet connection – broadband is best.
+						<a href="https://support.skype.com/en/faq/FA10328/what-do-i-need-to-start-using-skype" target="_blank">Read More...</a>
+					</p>
+					<span class="call-us-now">Call Us Now!</span>
+					<script type="text/javascript" src="https://secure.skypeassets.com/i/scom/js/skype-uri.js"></script>
+					<div id="SkypeButton_Call_pkerroj_1" class="pull-right">
+						<script type="text/javascript">
+							 Skype.ui({
+								"name": "dropdown",
+								"element": "SkypeButton_Call_pkerroj_1",
+								"participants": ["pkerroj"]
+							 });
+						</script>
+					</div>
+										
+				
 				</div>
 
 			</div>
@@ -99,6 +116,6 @@
 				</tbody>
 			</table>
 		</section>
-	</div>
+	</div><br/><br/>
 </div>
 <?php echo $this->Html->script('controllers/home',array('inline'=>false));?>
