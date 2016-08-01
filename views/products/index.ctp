@@ -22,6 +22,10 @@
 				<label for="search">Search</label>
 				<input ng-model="productFilter" id="search" class="form-control input-sm" placeholder="Filter text">
 			</div>
+			<div class="col-lg-2 col-md-2 col-xs-2 col-lg-offset-2 col-md-offset-2 col-xs-offset-2">
+				<label for="search">Items per page</label>
+				<input type="number" min="1" max="100" class="form-control input-sm ng-pristine ng-valid ng-valid-number ng-valid-max ng-valid-min" ng-model="pageSize">
+			</div>
 		</div><br/>
 		<div class="row">
 			<div class="col-sm-4 col-lg-4 col-md-4" pagination-id="ProductList" dir-paginate="d in (filteredProducts = (products | filter: productFilter )) | itemsPerPage: pageSize">
@@ -63,6 +67,10 @@
 			</div>
 			<div class="col-sm-12 col-lg-12 col-md-12" ng-if="filteredProducts.length == 0">
 				<div class="alert alert-info">No results found...</div>
+			</div>
+		
+			<div class="text-center col-sm-12 col-lg-12 col-md-12">
+				<dir-pagination-controls pagination-id="ProductList"></dir-pagination-controls>
 			</div>
 		</div>
 	</section>
