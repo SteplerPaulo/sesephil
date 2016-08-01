@@ -2,6 +2,7 @@
 class ContentsController extends AppController {
 
 	var $name = 'Contents';
+	var $helpers = array('Access');
 
 	function index() {
 		$this->Content->recursive = 0;
@@ -65,6 +66,7 @@ class ContentsController extends AppController {
 	}
 
 	function admin_view($id = null) {
+		$this->layout = "admin_default";
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid content', true));
 			$this->redirect(array('action' => 'index'));
@@ -73,6 +75,7 @@ class ContentsController extends AppController {
 	}
 
 	function admin_add() {
+		$this->layout = "admin_default";
 		if (!empty($this->data)) {
 			$this->Content->create();
 			if ($this->Content->save($this->data)) {
@@ -88,6 +91,7 @@ class ContentsController extends AppController {
 	}
 
 	function admin_edit($id = null) {
+		$this->layout = "admin_default";
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid content', true));
 			$this->redirect(array('action' => 'index'));

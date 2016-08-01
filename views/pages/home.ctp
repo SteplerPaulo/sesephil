@@ -1,3 +1,4 @@
+<?php echo $this->Html->addCrumb('Home Page'); ?>
 <div ng-controller="HomeController" ng-init="initializeController()">	
 	<div class="row">
 		<section class="col-md-9">
@@ -33,7 +34,7 @@
 					</div>
 				</div>
 			</div>
-			<h4>Highlighted Exhibits</h4>
+			<h4>Featured Products</h4>
 			<div class="row">
 				<div class="col-sm-4 col-lg-4 col-md-4" pagination-id="FeaturedProductList" dir-paginate="d in products | filter:q | itemsPerPage: productLimit">
 					<div class="thumbnail">
@@ -85,27 +86,14 @@
 
 		</section>
 		<section class="col-md-3">
-			<!--
-			<a class="list-group-item row">
-				<div class="col-xs-2  col-sm-2 col-md-12 col-lg-12"><h4>Category</h4></div>
-			</a>
-			<a href="/sesephil/categories/view/{{d.Category.slug}}" class="list-group-item row" pagination-id="CategoryList" dir-paginate="d in categories | filter:q | itemsPerPage: categoryLimit">
-				<div class="col-xs-1 col-sm-1  col-md-2 col-lg-2">
-					<i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
-				</div>
-				<div class="col-xs-4 col-sm-4 col-md-10 col-lg-10 ellipsis">{{d.Category.name}}</div>
-			</a>
-			<p ng-bind-html="myText"></p>
-			-->
-			
-			<table class="table table-hover">
+			<table class="table table-hover categories-table">
 				<thead>
 					<th>CATEGORIES</th>
-				<thead>
+				</thead>
 				<tbody>
 					<tr pagination-id="CategoryList" dir-paginate="d in categories | filter:q | itemsPerPage: categoryLimit">
 						<td>
-							<a href="/sesephil/products/{{d.Category.slug}}"  >{{d.Category.name}}</a>
+							<a href="/sesephil/product-category/{{d.Category.slug}}"  >{{d.Category.name}}</a>
 						</td>
 					</tr>
 				</tbody>

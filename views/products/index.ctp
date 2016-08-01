@@ -1,14 +1,16 @@
+<?php echo $this->Html->addCrumb('Home Page','/'); ?>
+<?php echo $this->Html->addCrumb('Products'); ?>
 <div ng-controller="ProductsController" ng-init="initializeController()">	
 	
 	<section class="col-md-3">
-		<table class="table table-hover">
+		<table class="table table-hover categories-table">
 			<thead>
 				<th>CATEGORIES</th>
-			<thead>
+			</thead>
 			<tbody>
 				<tr  pagination-id="CategoryList" dir-paginate="d in categories | filter:q | itemsPerPage: categoryLimit">
 					<td>
-						<a href="/sesephil/products/{{d.Category.slug}}"  >{{d.Category.name}}</a>
+						<a href="/sesephil/product-category/{{d.Category.slug}}"  >{{d.Category.name}}</a>
 					</td>
 				</tr>
 			</tbody>
@@ -22,7 +24,7 @@
 			</div>
 		</div><br/>
 		<div class="row">
-			<div class="col-sm-4 col-lg-4 col-md-4" pagination-id="ProductList" dir-paginate="d in products | filter:productFilter | itemsPerPage: pageSize">
+			<div class="col-sm-4 col-lg-4 col-md-4" pagination-id="ProductList" dir-paginate="d in (filteredProducts = (products | filter: productFilter )) | itemsPerPage: pageSize">
 				<div class="thumbnail">
 					<div class="row carousel-holder" style="margin-bottom: 0px;" ng-if="d.ProductImage.length">
 						<div class="col-md-12">
@@ -59,10 +61,11 @@
 					</p>
 				</div>
 			</div>
+			<div class="col-sm-12 col-lg-12 col-md-12" ng-if="filteredProducts.length == 0">
+				<div class="alert alert-info">No results found...</div>
+			</div>
 		</div>
-
 	</section>
-	
 </div>
 
 		

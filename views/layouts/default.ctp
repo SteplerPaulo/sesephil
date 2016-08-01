@@ -72,8 +72,8 @@
 						
 		
 							<li>
-								<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-dropbox')).' '.
-									$this->Html->tag('span', 'Product'),
+								<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-cubes')).' '.
+									$this->Html->tag('span', 'Products'),
 									array('admin' => false,'controller'=>'products','action'=>'/'),
 									array('escape' => false));						
 								?>
@@ -81,14 +81,14 @@
 							<li>
 								<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' =>'fa fa-info-circle')).' '.
 									$this->Html->tag('span', 'About Us'),
-									array('admin' => false,'controller'=>'pages','action'=>'/about-us'),
+									array('admin' => false,'controller'=>'','action'=>'/about-us'),
 									array('escape' => false));						
 								?>
 							</li>
 							<li>
 								<?php  echo $this->Html->link($this->Html->tag('i', '', array('class' =>'fa fa-phone-square')).' '.
-									$this->Html->tag('span', 'Contact'),
-									array('admin' => false,'controller'=>'pages','action'=>'/contact'),
+									$this->Html->tag('span', 'Contacts'),
+									array('admin' => false,'controller'=>'','action'=>'/contacts'),
 									array('escape' => false));						
 								?>
 							</li>
@@ -102,39 +102,51 @@
         <div id="ContentForLayoutContainer" class="container">
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->Session->flash('email'); ?>
+			<div class="breadcrumb">
+				<?php echo $this->Html->getCrumbs(' <i class="fa fa-chevron-circle-right" aria-hidden="true"></i> '); ?>
+			</div>
 			<?php echo $content_for_layout; ?>
         </div>
     </div>
 	<div id="footer">
-		<div class="container" style="padding-top: 10px;">
-			<p class="text-muted credit">Powered by <a href="#">P'KerRoj Technology</a>.
-				<span class="pull-right">
-					<?php  if($this->Access->isLoggedIn()):?>
-							<?php	echo $this->Html->link(
-									$this->Html->tag('span', 'Logout'),
-									array('admin' => false,'controller'=>'users','action'=>'logout'),
-									array('escape' => false));					
-							?> | 
-							<?php	echo $this->Html->link(
-									$this->Html->tag('span', 'Dashboard'),
-									array('admin' => false,'controller'=>'admin','action'=>'/'),
-									array('escape' => false));	
-							?>
-					<?php else:?>
-						<?php  echo $this->Html->link(
-									$this->Html->tag('span', 'Register'),
-									array('admin' => false,'controller'=>'users','action'=>'register'),
-									array('escape' => false));
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4  text-muted">Powered By <a href="#">No Sweat Technology</a></div>	
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-muted text-center ">	
+					Follow us on
+					<a href="https://www.facebook.com/pages/South-East-Star-Enterprises/419907524739514" target="_blank" title="SESEPHIL Facebook Page" data-toggle="tooltip" ><i class="fa fa-facebook-official"></i></a> 
+					<a href="" title="SESEPHIL LinkedIn" data-toggle="tooltip" ><i class="fa fa-linkedin-square"></i></a> 
+					<a href="" title="SESEPHIL Youtube Channel" data-toggle="tooltip" ><i class="fa fa-youtube-square"></i></a>
+					<a href="" title="SESEPHIL Instagram" data-toggle="tooltip" ><i class="fa fa-instagram"></i></a>
+					<a href="" title="SESEPHIL Twitter" data-toggle="tooltip" ><i class="fa fa-twitter-square"></i></a> 
+				</div>	
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4  text-right">
+				<?php  if($this->Access->isLoggedIn()):?>
+						<?php	echo $this->Html->link(
+								$this->Html->tag('span', 'Logout'),
+								array('admin' => false,'controller'=>'users','action'=>'logout'),
+								array('escape' => false));					
+						?> | 
+						<?php	echo $this->Html->link(
+								$this->Html->tag('span', 'Dashboard'),
+								array('admin' => false,'controller'=>'admin','action'=>'/'),
+								array('escape' => false));	
 						?>
-						|
-						<?php echo $this->Html->link(
-									$this->Html->tag('span', 'Sign In'),
-									array('admin' => false,'controller'=>'users','action'=>'login'),
-									array('escape' => false));
-						?>
-					<?php endif;?>		
-				</span>
-			</p>
+				<?php else:?>
+					<?php  echo $this->Html->link(
+								$this->Html->tag('span', 'Register'),
+								array('admin' => false,'controller'=>'users','action'=>'register'),
+								array('escape' => false));
+					?>
+					|
+					<?php echo $this->Html->link(
+								$this->Html->tag('span', 'Sign In'),
+								array('admin' => false,'controller'=>'users','action'=>'login'),
+								array('escape' => false));
+					?>
+				<?php endif;?>		
+			</div>
+			</div>
 		</div>
 	</div>
 	<?php
@@ -147,6 +159,12 @@
 		echo $this->Html->script('plugins/summernote');
 	?>
 	<script type="text/javascript">(function(){window.App = angular.module('App',['angularUtils.directives.dirPagination','ngSanitize'])})();</script>
+	<script>
+		$(function () {
+		  $('[data-toggle="tooltip"]').tooltip()
+		});
+	</script>
+	
 	<?php  echo $scripts_for_layout; ?>
 </body>
 </html>

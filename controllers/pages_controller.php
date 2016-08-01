@@ -84,6 +84,10 @@ class PagesController extends AppController {
 			//pr($aboutUs);exit;
 			$this->set(compact('aboutUs'));
 		}
+		if ($page == 'contacts'){
+			$contacts = $this->Content->findByTitle('Contacts');
+			$this->set(compact('contacts'));
+		}
 		
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
 		$this->render(implode('/', $path));

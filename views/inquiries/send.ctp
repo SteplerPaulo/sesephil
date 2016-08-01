@@ -20,6 +20,10 @@
 	list-style:none;
 }
 </style>
+
+<?php echo $this->Html->addCrumb('Home Page','/'); ?>
+<?php echo $this->Html->addCrumb('Products','/products/'); ?>
+<?php echo $this->Html->addCrumb('Send Inquiry'); ?>
 <div class="row">
 	<?php echo $this->Form->create('Inquiry',array('enctype' => 'multipart/form-data'));?>
 	<div class="col-md-8 col-md-offset-2">

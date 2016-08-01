@@ -7,12 +7,11 @@ class ProductsController extends AppController {
 	function beforeFilter(){ 
 		parent::beforeFilter();
 		$this->Auth->userModel = 'User'; 
-		$this->Auth->allow(array('index','all'));	
+		$this->Auth->allow(array('index','all','view'));	
     } 
 
 	function index() {
-		$this->Product->recursive = 0;
-		$this->set('products', $this->paginate());
+		
 	}
 
 	function view($slug = null) {
@@ -94,5 +93,12 @@ class ProductsController extends AppController {
 		$products = $this->Product->find('all');
 		echo json_encode($products);
 		exit;
+	}
+	
+	function category_products($slug = null){
+		
+		$products = $this->Product->find('all',array('conditions'=>array('Category.slug'=>'pregnancy-test')));
+		pr($products);exit;
+		
 	}
 }

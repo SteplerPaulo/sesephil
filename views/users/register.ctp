@@ -1,3 +1,5 @@
+<?php echo $this->Html->addCrumb('Home Page','/'); ?>
+<?php echo $this->Html->addCrumb('Register'); ?>
 <div class="row">
 	<div class="col-lg-12">
 		<div class="col-md-4 col-md-offset-4">
