@@ -28,10 +28,16 @@
  * to use (in this case, /app/views/pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+	Router::connect('/about-us', array('controller' => 'pages', 'action' => 'display','about-us'));
+	Router::connect('/contacts', array('controller' => 'pages', 'action' => 'display','contacts'));
+	
 	Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));
-	Router::connect('/product/:slug', array('controller' => 'products', 'action' => 'view'), array('pass' => array('slug')));
+	
+	Router::connect('/product/:slug', array('controller' => 'products', 'action' => 'view'), array('pass' => array('slug')));//PER ITEM
+	Router::connect('/product-category/:slug', array('controller' => 'products', 'action' => 'index'), array('pass' => array('slug')));//FILTER BY CATEGORY
 
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
+ 
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
