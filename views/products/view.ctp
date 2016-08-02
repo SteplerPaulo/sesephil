@@ -1,3 +1,6 @@
+<?php echo $this->Html->addCrumb('Home Page','/'); ?>
+<?php echo $this->Html->addCrumb('Products','/products'); ?>
+<?php echo $this->Html->addCrumb('Details'); ?>
 <div ng-controller="ViewProductController" ng-init="initializeController()">	
 	<h2>{{data.Product.name}}</h2>
 	<div class="row">
