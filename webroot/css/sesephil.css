@@ -158,9 +158,16 @@ body  {
 }
 */
 
-.categories-table a:hover{
+.categories-table td  a:hover{
 	color: #f60;
 	text-decoration: none;
+}
+.categories-table th  a{
+	color: #333;
+	text-decoration: none;
+}
+.categories-table th  a:hover{
+	color: #f60;
 }
 
 .call-us-now{
