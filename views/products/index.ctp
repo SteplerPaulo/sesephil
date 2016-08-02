@@ -5,7 +5,7 @@
 	<section class="col-md-3">
 		<table class="table table-hover categories-table">
 			<thead>
-				<th>CATEGORIES</th>
+				<th><a href="/sesephil/products">CATEGORIES</a></th>
 			</thead>
 			<tbody>
 				<tr  pagination-id="CategoryList" dir-paginate="d in categories | filter:q | itemsPerPage: categoryLimit">
