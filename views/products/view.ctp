@@ -47,7 +47,7 @@
 	<h4>Related Products</h4><br/>
 	<div class="row">
 		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"  pagination-id="RelatedProducts" dir-paginate="r in related_products | filter:r | itemsPerPage: relatedProductLimit" ng-if="productId != r.id">
-			<img src="/sesephil/img/product images/{{r.ProductImage[0].img_file}}" class="img-responsive img-thumbnail" alt="">
+			<a href="/sesephil/product/{{r.slug}}"><img src="/sesephil/img/product images/{{r.ProductImage[0].img_file}}" class="img-responsive img-thumbnail" alt=""></a>
 		</div>
 	</div>
 	<div class="col-sm-12 col-lg-12 col-md-12">
