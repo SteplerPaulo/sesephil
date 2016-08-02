@@ -2,6 +2,7 @@
 <div ng-controller="HomeController" ng-init="initializeController()">	
 	<div class="row">
 		<section class="col-md-9">
+			<h4>Events</h4>
 			<div class="row carousel-holder">
 				<div class="col-sm-12 col-md-12 col-lg-12">
 					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -42,10 +43,10 @@
 							<div class="col-md-12">
 								<div id="{{d.Product.slug}}" class="carousel slide" data-ride="carousel">
 									<ol class="carousel-indicators">
-										<li data-target="#carousel-example-generic" data-slide-to="0" dir-paginate="(key,images) in d.ProductImage | filter:q | itemsPerPage: productLimit" ng-if="d.ProductImage.length > 1" ng-class="{active: key==0}"></li>
+										<li data-target="#carousel-example-generic" data-slide-to="0" dir-paginate="(key,images) in d.ProductImage | filter:q | itemsPerPage: imageLimit" ng-if="d.ProductImage.length > 1" ng-class="{active: key==0}"></li>
 									</ol>
 									<div class="carousel-inner">
-										<div class="item" dir-paginate="(key,images) in d.ProductImage | filter:q | itemsPerPage: productLimit" ng-class="{active: key==0}">
+										<div class="item" dir-paginate="(key,images) in d.ProductImage | filter:q | itemsPerPage: imageLimit" ng-class="{active: key==0}">
 											<img src="/sesephil/img/product images/{{images.img_file}}" alt="{{d.Product.name}}" style="height:150px;">
 										</div>
 									</div>
@@ -76,6 +77,7 @@
 					</div>
 				</div>
 				<div class="col-sm-4 col-lg-4 col-md-4">
+					<!--
 					<h4><a href="javascript:void(0)">Want to Call or Chat our costumer service representative?</a>
 					</h4>
 					<p>
@@ -91,16 +93,12 @@
 							 Skype.ui({
 								"name": "dropdown",
 								"element": "SkypeButton_Call_pkerroj_1",
-								"participants": ["pkerroj"]
+								"participants": ["sesephil"]
 							 });
 						</script>
-					</div>
-										
-				
-				</div>
-
+					</div>-->	
+				</div>	
 			</div>
-
 		</section>
 		<section class="col-md-3">
 			<table class="table table-hover categories-table">
