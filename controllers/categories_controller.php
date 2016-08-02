@@ -25,7 +25,11 @@ class CategoriesController extends AppController {
 	function admin_add() {
 		$this->layout = "admin_default";
 		if (!empty($this->data)) {
-			$this->data ["Category"]['slug'] = preg_replace ('#[ -]+#','-', strtolower(trim($this->data ["Category"]['name'])));
+			
+			
+			$string = str_replace(' ', '-', strtolower(trim($d['Category']['name']))); 
+			$this->data['Category']['slug'] = preg_replace('/[^A-Za-z0-9\-]/', '-', $string);
+			
 			
 			
 			$this->Category->create();
@@ -47,7 +51,9 @@ class CategoriesController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			$this->data ["Category"]['slug'] = preg_replace ('#[ -]+#','-', strtolower(trim($this->data ["Category"]['name'])));
+			$string = str_replace(' ', '-', strtolower(trim($d['Category']['name']))); 
+			$this->data['Category']['slug'] = preg_replace('/[^A-Za-z0-9\-]/', '-', $string);
+			
 			if ($this->Category->save($this->data)) {
 				$this->Session->setFlash(__('Category has been updated', true));
 				$this->redirect(array('action' => 'index'));
@@ -84,4 +90,23 @@ class CategoriesController extends AppController {
 		exit;
 	}
 	
+	function admin_slug(){
+		$categories = $this->Category->find('all');
+		
+		foreach($categories as $k=>$d){
+			
+			$data['Category'][$k]['id'] = $d['Category']['id'];
+			
+			$string = str_replace(' ', '-', strtolower(trim($d['Category']['name']))); 
+			$data['Category'][$k]['slug'] = preg_replace('/[^A-Za-z0-9\-]/', '-', $string);
+		}
+	
+		if ($this->Category->saveAll($data['Category'])) {
+			echo 'The category slug has been updated';
+			exit;
+		} else {
+			echo 'The category slug could not be saved. Please, try again.';
+			exit;
+		}
+	}
 }

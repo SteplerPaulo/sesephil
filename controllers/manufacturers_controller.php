@@ -24,7 +24,8 @@ class ManufacturersController extends AppController {
 	function admin_add() {
 		$this->layout = 'admin_default';
 		if (!empty($this->data)) {
-			$this->data['Manufacturer']['slug'] = preg_replace('#[ -\.]+#', '-', strtolower(trim($this->data['Manufacturer']['name'])));
+			$string = str_replace(' ', '-', strtolower(trim($d['Manufacturer']['name']))); 
+			$this->data['Manufacturer']['slug'] = preg_replace('/[^A-Za-z0-9\-]/', '-', $string);
 			
 			$this->Manufacturer->create();
 			if ($this->Manufacturer->save($this->data)) {
@@ -43,7 +44,8 @@ class ManufacturersController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			$this->data['Manufacturer']['slug'] = preg_replace('#[ -\.]+#', '-', strtolower(trim($this->data['Manufacturer']['name'])));
+			$string = str_replace(' ', '-', strtolower(trim($d['Manufacturer']['name']))); 
+			$this->data['Manufacturer']['slug'] = preg_replace('/[^A-Za-z0-9\-]/', '-', $string);
 			
 			if ($this->Manufacturer->save($this->data)) {
 				$this->Session->setFlash(__('Manufacturer has been updated', true));
@@ -76,7 +78,9 @@ class ManufacturersController extends AppController {
 		foreach($manufacturers as $k=>$d){
 			
 			$data['Manufacturer'][$k]['id'] = $d['Manufacturer']['id'];
-			$data['Manufacturer'][$k]['slug'] = preg_replace('#[ -\.]+#', '-', strtolower(trim($d['Manufacturer']['name'])));
+			
+			$string = str_replace(' ', '-', strtolower(trim($d['Manufacturer']['name']))); 
+			$data['Manufacturer'][$k]['slug'] = preg_replace('/[^A-Za-z0-9\-]/', '-', $string);
 		}
 	
 		if ($this->Manufacturer->saveAll($data['Manufacturer'])) {
