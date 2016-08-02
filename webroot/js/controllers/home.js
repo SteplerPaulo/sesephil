@@ -3,7 +3,7 @@ App.controller('HomeController',function($scope,$rootScope,$http,$filter){
 	$scope.initializeController = function(){
 		$scope.currentPage = 1; 
 		$scope.categoryLimit = false;
-		$scope.productLimit = 5;
+		$scope.productLimit = 6;
 		$scope.imageLimit = 5;
 		 
 		 $scope.phones = [{
@@ -18,7 +18,6 @@ App.controller('HomeController',function($scope,$rootScope,$http,$filter){
 		
 		$http.get("/sesephil/products/all").success(function(response) {
 			$scope.products = response;
-			console.log($scope.products);
 		});
 	}
 });
