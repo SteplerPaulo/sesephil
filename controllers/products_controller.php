@@ -7,7 +7,7 @@ class ProductsController extends AppController {
 	function beforeFilter(){ 
 		parent::beforeFilter();
 		$this->Auth->userModel = 'User'; 
-		$this->Auth->allow(array('index','all','view'));	
+		$this->Auth->allow(array('index','all','view','by_filter'));	
     } 
 
 	function index() {
@@ -19,7 +19,7 @@ class ProductsController extends AppController {
 			$this->Session->setFlash(__('Invalid product', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->set('product', $this->Product->findBySlug($slug));
+		//$this->set('product', $this->Product->findBySlug($slug));
 	}
 	
 	function admin_index() {
@@ -94,11 +94,32 @@ class ProductsController extends AppController {
 		echo json_encode($products);
 		exit;
 	}
+
+	function admin_slug(){
+		$products = $this->Product->find('all');
+		
+		foreach($products as $k=>$d){
+			
+			$data['Product'][$k]['id'] = $d['Product']['id'];
+			
+			$string = str_replace(' ', '-', strtolower(trim($d['Product']['name']))); 
+			$data['Product'][$k]['slug'] = preg_replace('/[^A-Za-z0-9\-]/', '-', $string);
+		}
 	
-	function category_products($slug = null){
+		if ($this->Product->saveAll($data['Product'])) {
+			echo 'The product slug has been updated';
+			exit;
+		} else {
+			echo 'The product slug could not be saved. Please, try again.';
+			exit;
+		}
+	}
+
+	function by_filter($slug = 'assucryl-(pga)-braided-violet-coated'){
 		
-		$products = $this->Product->find('all',array('conditions'=>array('Category.slug'=>'pregnancy-test')));
-		pr($products);exit;
 		
+		$result = $this->Product->find('first',array('recursive'=>3,'conditions'=>array('Product.slug'=>$slug)));
+		echo json_encode($result);
+		exit;
 	}
 }

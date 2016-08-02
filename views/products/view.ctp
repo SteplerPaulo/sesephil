@@ -1,89 +1,59 @@
 <div ng-controller="ViewProductController" ng-init="initializeController()">	
-	<h1><?php echo $product['Product']['name']; ?></h1>
+	<h2>{{data.Product.name}}</h2>
 	<div class="row">
-		<div class="col-lg-7 thumbnail">
-			<img src="http://placehold.it/320x150" alt="">
+		<div class="col-lg-8">
+			<div class="thumbnail">
+				<div class="row carousel-holder" style="margin-bottom: 0px;" ng-if="data.ProductImage.length">
+					<div class="col-md-12">
+						<div id="{{data.Product.slug}}" class="carousel slide" data-ride="carousel">
+							<ol class="carousel-indicators">
+								<li data-target="#carousel-example-generic" data-slide-to="0" dir-paginate="(key,images) in data.ProductImage | filter:q | itemsPerPage: imageLimit" ng-if="data.ProductImage.length > 1" ng-class="{active: key==0}"></li>
+							</ol>
+							<div class="carousel-inner">
+								<div class="item" dir-paginate="(key,images) in data.ProductImage | filter:q | itemsPerPage: imageLimit" ng-class="{active: key==0}">
+									<img src="/sesephil/img/product images/{{images.img_file}}" alt="{{data.Product.name}}">
+								</div>
+							</div>
+							<a class="left carousel-control" href="#{{data.Product.slug}}" data-slide="prev" ng-if="data.ProductImage.length > 1" >
+								<span class="glyphicon glyphicon-chevron-left" style="font-size: 15px;"></span>
+							</a>
+							<a class="right carousel-control" href="#{{data.Product.slug}}" data-slide="next" ng-if="data.ProductImage.length > 1" >
+								<span class="glyphicon glyphicon-chevron-right" style="font-size: 15px;"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<img src="http://placehold.it/320x150" ng-if="!data.ProductImage.length">
+			</div>
 		</div>
-		<div class="col-lg-5">
-			<strong><?php echo $product['Product']['name']; ?></strong><br/><br/>
+		<div class="col-lg-4">
+			<strong>{{data.Product.name}}</strong><br/><br/>
 			
-			
-			
-			<form action="/alibaba/shop/add" id="ProductViewForm" method="post" accept-charset="utf-8">
-				<div style="display:none;">
-					<input type="hidden" name="_method" value="POST">
-				</div>		
-				<input type="hidden" name="data[Product][id]" value="718384f5-4123-11e2-8c2b-f23c91934b7a" id="ProductId">	
-				<button class="btn btn-danger addtocart" id="718384f5-4123-11e2-8c2b-f23c91934b7a" type="submit">
-					<b><i class="fa fa-envelope-o"></i> Contact Now</b>
-				</button>
-			</form>
-			
-			<?php echo $product['Product']['description']; ?>
+			<a href="/sesephil/inquiries/send/{{data.Product.slug}}" target="_blank" class="btn btn-danger btn-sm"><i class="fa fa-envelope-o"></i> Contact Now</a>
+			<br/><br/>
+			<p ng-bind-html="data.Product.description"></p>
+			<br/><br/>
 			<div class="caption">
 				<dl>
 				  <dt>Manufactured by:</dt>
-				  <dd><?php echo $product['Manufacturer']['name']; ?></dd>
+				  <dd>{{data.Manufacturer.name}}</dd>
 				  <dt>Category:</dt>
-				  <dd><?php echo $product['Category']['name']; ?></dd>
+				  <dd>{{data.Category.name}}</dd>
 				</dl>
 			</div>
 		</div>
 	</div>
-</div>
-
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Product', true), array('action' => 'edit', $product['Product']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Delete Product', true), array('action' => 'delete', $product['Product']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $product['Product']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Products', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Product', true), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Categories', true), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Category', true), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Manufacturers', true), array('controller' => 'manufacturers', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Manufacturer', true), array('controller' => 'manufacturers', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Product Images', true), array('controller' => 'product_images', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Product Image', true), array('controller' => 'product_images', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
-<div class="related">
-	<h3><?php __('Related Product Images');?></h3>
-	<?php if (!empty($product['ProductImage'])):?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php __('Id'); ?></th>
-		<th><?php __('Product Id'); ?></th>
-		<th><?php __('Img File'); ?></th>
-		<th><?php __('Caption'); ?></th>
-		<th class="actions"><?php __('Actions');?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($product['ProductImage'] as $productImage):
-			$class = null;
-			if ($i++ % 2 == 0) {
-				$class = ' class="altrow"';
-			}
-		?>
-		<tr<?php echo $class;?>>
-			<td><?php echo $productImage['id'];?></td>
-			<td><?php echo $productImage['product_id'];?></td>
-			<td><?php echo $productImage['img_file'];?></td>
-			<td><?php echo $productImage['caption'];?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'product_images', 'action' => 'view', $productImage['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'product_images', 'action' => 'edit', $productImage['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'product_images', 'action' => 'delete', $productImage['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $productImage['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Product Image', true), array('controller' => 'product_images', 'action' => 'add'));?> </li>
-		</ul>
+	
+	<h4>Related Products</h4><br/>
+	<div class="row">
+		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"  pagination-id="RelatedProducts" dir-paginate="r in related_products | filter:r | itemsPerPage: relatedProductLimit" ng-if="productId != r.id">
+			<img src="/sesephil/img/product images/{{r.ProductImage[0].img_file}}" class="img-responsive img-thumbnail" alt="">
+		</div>
+	</div>
+	<div class="col-sm-12 col-lg-12 col-md-12">
+		<dir-pagination-controls pagination-id="RelatedProducts"></dir-pagination-controls>
 	</div>
 </div>
+
+<?php echo $this->Html->script('controllers/product_view',array('inline'=>false));?>
+
