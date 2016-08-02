@@ -6,6 +6,6 @@
 
 <div class="row">
 	<div class="col-lg-8 col-lg-offset-2">
-		<image src="/sesephil/img/under-construction.jpg" >
+		<image src="/sesephil/img/under-construction.jpg" class="img-responsive" alt="">
 	</div>
 </div>
