@@ -3,7 +3,7 @@ App.controller('HomeController',function($scope,$rootScope,$http,$filter){
 	$scope.initializeController = function(){
 		$scope.currentPage = 1; 
 		$scope.categoryLimit = false;
-		$scope.productLimit = 6;
+		$scope.productLimit = 5;
 		$scope.imageLimit = 5;
 		 
 		 $scope.phones = [{
