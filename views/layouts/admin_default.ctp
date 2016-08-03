@@ -205,7 +205,13 @@
 		echo $this->Html->script('plugins/summernote');
 	?>
 	<script type="text/javascript">(function(){window.App = angular.module('App',['angularUtils.directives.dirPagination','ngSanitize'])})();</script>
+	<script>
+		$(function () {
+		  $('[data-toggle="tooltip"]').tooltip();
+		});
+	</script>
 	<?php  echo $scripts_for_layout; ?>
+
 
 </body>
 
