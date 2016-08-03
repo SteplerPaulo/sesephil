@@ -77,26 +77,36 @@
 					</div>
 				</div>
 				<div class="col-sm-4 col-lg-4 col-md-4">
-					<!--
-					<h4><a href="javascript:void(0)">Want to Call or Chat our costumer service representative?</a>
+		
+					<h4>
+						<a href="javascript:void(0)">Want to Call or Chat our costumer service representative?</a>
 					</h4>
 					<p>
-						What do I need to start contacting SESEPHIL using Skype?
-						<br/><br/>
-						All you need to get up and running with Skype is an internet connection – broadband is best.
-						<a href="https://support.skype.com/en/faq/FA10328/what-do-i-need-to-start-using-skype" target="_blank">Read More...</a>
+						All you need is an internet connection and a facebook messenger account
+						<a href="javascript:void(0);">Read More...</a>
 					</p>
+					
+							
+					
 					<span class="call-us-now">Call Us Now!</span>
+					<a href="https://www.messenger.com/t/pkerroj" target="_blank" class="pull-right" style="margin-top: -25px;">
+						<image  src="/sesephil/img/messenger-icon.png"/>
+						
+					</a>
+					
+					
+					<!--
 					<script type="text/javascript" src="https://secure.skypeassets.com/i/scom/js/skype-uri.js"></script>
 					<div id="SkypeButton_Call_pkerroj_1" class="pull-right">
 						<script type="text/javascript">
 							 Skype.ui({
 								"name": "dropdown",
 								"element": "SkypeButton_Call_pkerroj_1",
-								"participants": ["sesephil"]
+								"participants": ["+639228737329"]
 							 });
 						</script>
-					</div>-->	
+					</div>	
+					-->
 				</div>	
 			</div>
 		</section>
