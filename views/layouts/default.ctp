@@ -115,10 +115,10 @@
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-muted text-center ">	
 					Follow us on
 					<a href="https://www.facebook.com/pages/South-East-Star-Enterprises/419907524739514" target="_blank" title="SESEPHIL Facebook Page" data-toggle="tooltip" ><i class="fa fa-facebook-official"></i></a> 
-					<a href="" title="SESEPHIL LinkedIn" data-toggle="tooltip" ><i class="fa fa-linkedin-square"></i></a> 
-					<a href="" title="SESEPHIL Youtube Channel" data-toggle="tooltip" ><i class="fa fa-youtube-square"></i></a>
-					<a href="" title="SESEPHIL Instagram" data-toggle="tooltip" ><i class="fa fa-instagram"></i></a>
-					<a href="" title="SESEPHIL Twitter" data-toggle="tooltip" ><i class="fa fa-twitter-square"></i></a> 
+					<a href="javascript:void(0)" title="SESEPHIL LinkedIn" data-toggle="tooltip" ><i class="fa fa-linkedin-square"></i></a> 
+					<a href="javascript:void(0)" title="SESEPHIL Youtube Channel" data-toggle="tooltip" ><i class="fa fa-youtube-square"></i></a>
+					<a href="javascript:void(0)" title="SESEPHIL Instagram" data-toggle="tooltip" ><i class="fa fa-instagram"></i></a>
+					<a href="javascript:void(0)" title="SESEPHIL Twitter" data-toggle="tooltip" ><i class="fa fa-twitter-square"></i></a> 
 				</div>	
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4  text-right">
 				<?php  if($this->Access->isLoggedIn()):?>
