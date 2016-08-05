@@ -132,7 +132,7 @@ class UsersController extends AppController {
 					'alias' => $this->data['User']['models']
 				)); 
 				$this->Session->setFlash(__('New ACO has been saved', true));
-				$this->redirect('/pages/access_control');
+				$this->redirect('/users/access_control');
 			}
 			
 			$models = array();
@@ -164,7 +164,7 @@ class UsersController extends AppController {
 						'alias' => $alias
 					)); 
 					$this->Session->setFlash(__('New ARO has been saved', true));
-					$this->redirect('/pages/access_control');
+					$this->redirect('/users/access_control');
 				}else{
 					die('Existing Alias. Please try another one');
 				}
@@ -180,14 +180,14 @@ class UsersController extends AppController {
 				$data = $this->data['User'];
 				$this->Acl->deny($data['roles'], $data['models'], '*');
 				$this->Acl->allow($data['roles'], $data['models'], $data['methods']); 
-				$this->redirect('/pages/access_control');
+				$this->redirect('/users/access_control');
 			}
 			
 			$models = array();
 			foreach(Configure::listObjects('model') as $m){$models[$m]=$m;}
 			
 			$roles = $this->Acl->Aro->find('list',array('fields'=>array('Aro.Alias','Aro.Alias'),'conditions'=>array('Aro.parent_id' => null ,'Aro.foreign_key' => null  )));
-			$methods = array('create'=>'create','read'=>'read','update'=>'update','delete'=>'delete','acl'=>'acl');
+			$methods = array('create'=>'create','read'=>'read','update'=>'update','delete'=>'delete','acl'=>'acl','admin'=>'admin');
 			$this->set(compact('models','roles','methods'));
 			
 			/*$f = new ReflectionClass('UsersController');$methods = array();
@@ -217,7 +217,7 @@ class UsersController extends AppController {
 					$data['id'] = $aro_user['Aro']['id']; 
 					$data['parent_id'] = $user_new_group; 
 					$this->Acl->Aro->save($data); 
-					$this->redirect('/pages/access_control');
+					$this->redirect('/users/access_control');
 				}
 			}	
 			$users = $this->User->find('list',array('fields'=>array('User.id','User.username')));
@@ -228,28 +228,11 @@ class UsersController extends AppController {
 			die('You are not authorized to access that location.');
 		}
 	}
-
-	//BASIC
-	function index() {
-		if($this->Access->check('User','create','read','update','delete')){
-			$this->User->recursive = 0;
-			$this->set('users', $this->paginate());
-					
-		
-			$curr_user = $this->User->find('first',array('conditions'=>array('User.id'=>$this->Auth->user('id'))));
-			$this->set('curr_user', $curr_user);	
-		}else{
-			die('You are not authorized to access that location.');
-		}
-	}
-
-	function view($username = null) {
-		if(empty($username)){
-			$username=$this->Access->getmy('username');
-		}
-		$this->set('user', $this->User->findByUsername($username));
-	}
 	
+	function access_control(){
+		if(!$this->Access->check('User','acl')) die ("HTTP ERROR 401 (UNAUTHORIZED)");
+		
+	}
 	
 	function account_setting() {
 		if (!empty($this->data)) {
@@ -462,22 +445,57 @@ class UsersController extends AppController {
 		$this->set(compact('users','models'));
 	}
 	
-	
 	function admin_login(){
 		$this->redirect(array('controller'=>'users', 'action'=>'login', 'admin'=>false));
 	}
 
 	function admin_dashboard(){
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Your webpage trying to address is for autorized SESEPHIL personnel only. <br/>Call system administrator for your account verification");
 		$this->layout = "admin_default";
 	}
 	
 	function admin_index(){
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		$this->layout = "admin_default";
 	}
 	
 	function all(){
-		$users = $this->User->find('all');
+		$users = $this->User->find('all',array('conditions'=>array('User.id NOT'=>1)));
 		echo json_encode($users);
 		exit;
+	}
+	
+	function admin_assign(){
+		if (!empty($this->data)) {
+			
+			$aro_user =  $this->Acl->Aro->find('first', 
+				array( 
+					'conditions' => array( 
+						'Aro.parent_id !=' => NULL, 
+						'Aro.model' => 'User', 
+						'Aro.foreign_key' =>  $this->data['User']['user_id']
+					)));
+				
+			if(!empty($aro_user)){ 
+				$data['id'] = $aro_user['Aro']['id']; 
+				$data['parent_id'] = $this->data['User']['roles']; 
+				if($this->Acl->Aro->save($data)){
+					
+					$user['id'] = $this->data['User']['user_id'];
+					if($this->data['User']['roles'] == 2){
+						$user['is_admin'] = true;
+					}else{
+						$user['is_admin'] = false;
+					}
+					$this->User->save($user);
+					$this->redirect(array("controller" => 'users', "action" => 'admin_index'));
+				}else{
+					$this->Session->setFlash(__("There's a problem updating user role. Please try again.", true));	
+					$this->redirect(array("controller" => 'users', "action" => 'admin_index'));
+				}
+				
+			}
+		}	
+		
 	}
 }
