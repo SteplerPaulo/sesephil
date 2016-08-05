@@ -1,6 +1,5 @@
-
 App.controller('HomeController',function($scope,$rootScope,$http,$filter){
-	console.log(BASE_URL);
+	BASE_URL =  window.location.href;
 	$scope.initializeController = function(){
 		$scope.currentPage = 1; 
 		$scope.categoryLimit = false;
