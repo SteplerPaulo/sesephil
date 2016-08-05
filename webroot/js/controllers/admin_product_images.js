@@ -3,21 +3,34 @@ App.controller('AdminProductImagesController',function($scope,$rootScope,$http,$
 	$scope.initializeController = function(){
 		
 		$scope.pageSize =false;
-			
-			
-		if(window.location.pathname.split('/')[4]){
-			var slug = window.location.pathname.split('/')[4];
-				
-			$http.get(BASE_URL+"product_images/by_filter/"+slug).success(function(response) {
-				
-				$scope.d =  response;
-				$scope.ProductName = response.Product.name
-				$scope.ProductID = response.Product.id
-				$scope.ProductSlug = response.Product.slug
-				console.log($scope.ProductSlug);
-			});
-		}		
 		
+
+		if (document.location.hostname == "localhost"){
+			if(window.location.pathname.split('/')[4]){
+				var slug = window.location.pathname.split('/')[4];
+					
+				$http.get(BASE_URL+"product_images/by_filter/"+slug).success(function(response) {
+					
+					$scope.d =  response;
+					$scope.ProductName = response.Product.name
+					$scope.ProductID = response.Product.id
+					$scope.ProductSlug = response.Product.slug
+					console.log($scope.ProductSlug);
+				});
+			}
+		}else{
+			if(window.location.pathname.split('/')[3]){
+				var slug = window.location.pathname.split('/')[3];
+				$http.get(BASE_URL+"product_images/by_filter/"+slug).success(function(response) {
+					
+					$scope.d =  response;
+					$scope.ProductName = response.Product.name
+					$scope.ProductID = response.Product.id
+					$scope.ProductSlug = response.Product.slug
+					console.log($scope.ProductSlug);
+				});
+			}
+		}
 	}
 	
 	
