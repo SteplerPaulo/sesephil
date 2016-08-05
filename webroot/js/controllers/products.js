@@ -1,15 +1,17 @@
 App.controller('ProductsController',function($scope,$rootScope,$http,$filter){
-	console.log(BASE_URL+"/categories/main_children");
+	
 
+	var getUrl = window.location;
+	var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+	console.log(baseUrl);
 	$scope.initializeController = function(){
 		$scope.currentPage = 1; 
 		$scope.pageSize =12;
-		
-		$http.get(BASE_URL+"categories/main_children").success(function(response) {
+		$http.get("/sesephil/categories/main_children").success(function(response) {
 			$scope.categories = response;
 		});
 			
-		$http.get(BASE_URL+"products/all").success(function(response) {
+		$http.get("/sesephil/products/all").success(function(response) {
 			$scope.products = response;
 			
 			if(window.location.pathname.split('/')[3]){
