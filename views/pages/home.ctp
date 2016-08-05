@@ -36,7 +36,7 @@
 									</ol>
 									<div class="carousel-inner">
 										<div class="item" dir-paginate="(key,images) in d.ProductImage | filter:q | itemsPerPage: imageLimit" ng-class="{active: key==0}">
-											<img src="/sesephil/img/product images/{{images.img_file}}" alt="{{d.Product.name}}" style="height:150px;">
+											<img src="<?php $_SERVER['SERVER_NAME']?>/img/product images/{{images.img_file}}" alt="{{d.Product.name}}" style="height:150px;">
 										</div>
 									</div>
 									<a class="left carousel-control" href="#{{d.Product.slug}}" data-slide="prev" ng-if="d.ProductImage.length > 1" >
