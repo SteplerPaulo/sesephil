@@ -1,1 +1,1 @@
-var BASE_URL ='/'+window.location.pathname.split('/')[1]+'/';
+var BASE_URL ='/'+window.location.host+'/';
