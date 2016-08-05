@@ -8,7 +8,7 @@ App.controller('AdminProductImagesController',function($scope,$rootScope,$http,$
 		if(window.location.pathname.split('/')[4]){
 			var slug = window.location.pathname.split('/')[4];
 				
-			$http.get("/sesephil/product_images/by_filter/"+slug).success(function(response) {
+			$http.get(BASE_URL+"product_images/by_filter/"+slug).success(function(response) {
 				
 				$scope.d =  response;
 				$scope.ProductName = response.Product.name

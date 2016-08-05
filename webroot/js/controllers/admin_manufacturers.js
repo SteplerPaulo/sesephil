@@ -5,7 +5,7 @@ App.controller('AdminManufacturersController',function($scope,$rootScope,$http,$
 		$scope.pageSize = 7;
 		
 		
-		$http.get("/sesephil/manufacturers/all").success(function(response) {
+		$http.get(BASE_URL+"manufacturers/all").success(function(response) {
 			$scope.manufacturers = response;
 		});
 	}

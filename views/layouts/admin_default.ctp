@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,9 +9,11 @@
     <meta name="author" content="">
 
     <title>SESEPHIL-Admin</title>
+	<link href="<?php echo $this->base;?>/img/company logo/1.png" type="image/x-icon" rel="icon">
+	<link href="<?php echo $this->base;?>/img/company logo/1.png" type="image/x-icon" rel="shortcut icon">
 	
 	<?php
-		echo $this->Html->meta('icon');
+		//echo $this->Html->meta('icon');
 		echo $this->Html->css('bootstrap.min'); //Bootstrap Core CSS
 		echo $this->Html->css('sesephil-admin'); //Custom CSS
 		echo $this->Html->css('template\font-awesome-4.4.0\css\font-awesome'); //Custom Fonts
@@ -198,6 +199,7 @@
 	<?php
 		echo $this->Html->script(array('jquery')); 
 		echo $this->Html->script(array('bootstrap.min')); //Bootstrap Core JavaScript
+		echo $this->Html->script('constant');
 		echo $this->Html->script(array('template/angular'));
 		echo $this->Html->script(array('template/angular-sanitize'));
 		echo $this->Html->script(array('angularUtils/directives/dirPagination'));

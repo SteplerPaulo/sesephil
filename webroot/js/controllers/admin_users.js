@@ -5,7 +5,7 @@ App.controller('AdminUsersController',function($scope,$rootScope,$http,$filter){
 		$scope.pageSize = 10;
 		
 		
-		$http.get("/sesephil/users/all").success(function(response) {
+		$http.get(BASE_URL+"users/all").success(function(response) {
 			$scope.users = response;
 		});
 	}

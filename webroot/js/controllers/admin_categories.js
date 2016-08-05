@@ -5,7 +5,7 @@ App.controller('AdminCategoriesController',function($scope,$rootScope,$http,$fil
 		$scope.pageSize = 7;
 		
 		
-		$http.get("/sesephil/categories/main_children").success(function(response) {
+		$http.get(BASE_URL+"categories/main_children").success(function(response) {
 			$scope.categories = response;
 		});
 	}

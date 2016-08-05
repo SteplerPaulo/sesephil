@@ -5,7 +5,7 @@ App.controller('AdminInquiriesController',function($scope,$rootScope,$http,$filt
 		$scope.pageSize = 7;
 		
 		
-		$http.get("/sesephil/inquiries/all").success(function(response) {
+		$http.get(BASE_URL+"inquiries/all").success(function(response) {
 			$scope.inquiries = response;
 			console.log($scope.inquiries);
 		});
