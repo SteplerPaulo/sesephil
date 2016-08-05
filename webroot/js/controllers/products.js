@@ -1,6 +1,5 @@
-var BASE_URL = window.location.href;
 App.controller('ProductsController',function($scope,$rootScope,$http,$filter){
-	
+	console.log(BASE_URL);
 	$scope.initializeController = function(){
 		$scope.currentPage = 1; 
 		$scope.pageSize =12;

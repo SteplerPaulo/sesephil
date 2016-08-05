@@ -25,13 +25,15 @@
 		<?php __('SESEPHIL:'); ?>
 		<?php echo $title_for_layout; ?>
 	</title>
+
+	
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-	<link href="/sesephil/img/company logo/1.png" type="image/x-icon" rel="icon">
-	<link href="/sesephil/img/company logo/1.png" type="image/x-icon" rel="shortcut icon">
+	<link href="<?php echo $this->base;?>/img/company logo/1.png" type="image/x-icon" rel="icon">
+	<link href="<?php echo $this->base;?>/img/company logo/1.png" type="image/x-icon" rel="shortcut icon">
 	<?php
 		//echo $this->Html->meta('icon');
 		echo $this->Html->css('bootstrap.min'); //Bootstrap Core CSS
@@ -45,6 +47,8 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+	
+	
 </head>
 <body>
     <div ng-app="App" id="wrap">
@@ -152,6 +156,7 @@
 	<?php
 		echo $this->Html->script(array('jquery')); 
 		echo $this->Html->script(array('bootstrap.min')); //Bootstrap Core JavaScript
+		echo $this->Html->script('constant');
 		echo $this->Html->script(array('template/angular'));
 		echo $this->Html->script(array('template/angular-sanitize'));
 		echo $this->Html->script(array('angularUtils/directives/dirPagination'));

@@ -14,7 +14,7 @@
 							</ol>
 							<div class="carousel-inner">
 								<div class="item" dir-paginate="(key,images) in data.ProductImage | filter:q | itemsPerPage: imageLimit" ng-class="{active: key==0}">
-									<img src="/sesephil/img/product images/{{images.img_file}}" alt="{{data.Product.name}}">
+									<img src="<?php echo $this->base;?>/img/product images/{{images.img_file}}" alt="{{data.Product.name}}">
 								</div>
 							</div>
 							<a class="left carousel-control" href="#{{data.Product.slug}}" data-slide="prev" ng-if="data.ProductImage.length > 1" >
@@ -32,7 +32,7 @@
 		<div class="col-lg-4">
 			<strong>{{data.Product.name}}</strong><br/><br/>
 			
-			<a href="/sesephil/inquiries/send/{{data.Product.slug}}" target="_blank" class="btn btn-danger btn-sm"><i class="fa fa-envelope-o"></i> Contact Now</a>
+			<a href="<?php echo $this->base;?>/inquiries/send/{{data.Product.slug}}" target="_blank" class="btn btn-danger btn-sm"><i class="fa fa-envelope-o"></i> Contact Now</a>
 			<br/><br/>
 			<p ng-bind-html="data.Product.description"></p>
 			<br/><br/>
@@ -50,7 +50,7 @@
 	<h4>Related Products</h4><br/>
 	<div class="row">
 		<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4"  pagination-id="RelatedProducts" dir-paginate="r in related_products | filter:r | itemsPerPage: relatedProductLimit" ng-if="productId != r.id">
-			<a href="/sesephil/product/{{r.slug}}"><img src="/sesephil/img/product images/{{r.ProductImage[0].img_file}}" class="img-responsive img-thumbnail" alt=""></a>
+			<a href="<?php echo $this->base;?>/product/{{r.slug}}"><img src="<?php echo $this->base;?>/img/product images/{{r.ProductImage[0].img_file}}" class="img-responsive img-thumbnail" alt=""></a>
 		</div><br/>
 	</div>
 	<div class="col-sm-12 col-lg-12 col-md-12">
