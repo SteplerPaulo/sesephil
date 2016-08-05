@@ -19,7 +19,7 @@
 			</div>
 			<div class="panel-footer">	
 				<div class="text-right">
-					<a href="/sesephil/admin/manufacturers" class="btn btn-default" type="cancel">Cancel</a>
+					<a href="<?php echo $this->base;?>/admin/manufacturers" class="btn btn-default" type="cancel">Cancel</a>
 					<button class="btn btn-danger" type="submit">Update</button>
 				</div>
 			</div>

@@ -35,7 +35,7 @@
 					</div>
 					<div ng-if="img.caption">{{img.caption}}</div>
 					<div ng-if="!img.caption" class="text-muted">No caption</div>
-					<img src="/sesephil/img/product images/{{img.img_file}}" class="img-responsive img-thumbnail" alt="" style="height:200px; width:340px;">
+					<img src="<?php echo $this->base;?>/img/product images/{{img.img_file}}" class="img-responsive img-thumbnail" alt="" style="height:200px; width:340px;">
 				</a>
 			</div>
 		</div>

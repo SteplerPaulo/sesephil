@@ -17,7 +17,7 @@
 				<thead>
 					<tr>
 						<th colspan="4">PRODUCTS</th>
-						<th colspan="1"><a href = "/sesephil/admin/products/add" class="btn btn-sm btn-warning pull-right">Add New Product</a></th>
+						<th colspan="1"><a href = "<?php echo $this->base;?>/admin/products/add" class="btn btn-sm btn-warning pull-right">Add New Product</a></th>
 					</tr>
 					<tr>
 						<th>ID</th>
@@ -34,9 +34,9 @@
 						<td>{{d.Category.name}}</td>
 						<td>{{d.Manufacturer.name}}</td>
 						<td class="actions text-center">
-							<a href="/sesephil/admin/products/edit/{{d.Product.slug}}" data-toggle="tooltip" title="Edit Product Details"><i class="fa fa-edit"></i></a>
+							<a href="<?php echo $this->base;?>/admin/products/edit/{{d.Product.slug}}" data-toggle="tooltip" title="Edit Product Details"><i class="fa fa-edit"></i></a>
 							| 
-							<a href="/sesephil/admin/product/{{d.Product.slug}}/images/" data-toggle="tooltip" title="Product Images"><i class="fa fa-file-image-o"></i></a>
+							<a href="<?php echo $this->base;?>/admin/product/{{d.Product.slug}}/images/" data-toggle="tooltip" title="Product Images"><i class="fa fa-file-image-o"></i></a>
 							
 						</td>
 					</tr>

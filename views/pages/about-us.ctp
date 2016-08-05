@@ -16,7 +16,7 @@
 		<div class="media">
 			<div class="media-left">
 				<a href="#">
-					<image src="/sesephil/img/about-us/owner-icon.jpg" class="media-object img-rounded img-thumbnail" />
+					<image src="<?php echo $this->base;?>/img/about-us/owner-icon.jpg" class="media-object img-rounded img-thumbnail" />
 				</a>
 			</div>
 			<div class="media-body">
@@ -28,7 +28,7 @@
 		<div class="media">
 			<div class="media-left">
 				<a href="#">
-					<image src="/sesephil/img/about-us/truck-icon.jpg" class="media-object img-rounded img-thumbnail" />
+					<image src="<?php echo $this->base;?>/img/about-us/truck-icon.jpg" class="media-object img-rounded img-thumbnail" />
 				</a>
 			</div>
 			<div class="media-body">
@@ -40,7 +40,7 @@
 		<div class="media">
 			<div class="media-left">
 				<a href="#">
-					<image src="/sesephil/img/about-us/25years-icon.jpg" class="media-object img-rounded img-thumbnail" />
+					<image src="<?php echo $this->base;?>/img/about-us/25years-icon.jpg" class="media-object img-rounded img-thumbnail" />
 				</a>
 			</div>
 			<div class="media-body">
@@ -52,7 +52,7 @@
 		<div class="media">
 			<div class="media-left">
 				<a href="https://www.google.com.ph/maps/place/South+East+Star+Enterprises/@14.080179,121.1519903,17z/data=!3m1!4b1!4m5!3m4!1s0x33bd6f5b56afcecf:0xfcbe7b43ce925acc!8m2!3d14.080179!4d121.154179" target="_blank" title="View Location" data-toggle="tooltip" class="red-tooltip">
-					<image src="/sesephil/img/about-us/map-icon.jpg" class="media-object img-rounded img-thumbnail" />
+					<image src="<?php echo $this->base;?>/img/about-us/map-icon.jpg" class="media-object img-rounded img-thumbnail" />
 				</a>
 			</div>
 			<div class="media-body">
@@ -228,7 +228,7 @@
 						</div>
 					</div>
 					<i class="fa fa-creative-commons" aria-hidden="true"></i> Our Vision | Mission
-					<img src="/sesephil/img/about-us/vision-mission.jpg" class="img-responsive img-thumbnail" alt="">
+					<img src="<?php echo $this->base;?>/img/about-us/vision-mission.jpg" class="img-responsive img-thumbnail" alt="">
 					
 				</a>
 			</div>
@@ -240,7 +240,7 @@
 						</div>
 					</div>
 					<i class="fa fa-certificate" aria-hidden="true"></i> Our Licenses & Accreditations
-					<img src="/sesephil/img/about-us/certified.jpg" class="img-responsive img-thumbnail" alt="">
+					<img src="<?php echo $this->base;?>/img/about-us/certified.jpg" class="img-responsive img-thumbnail" alt="">
 				</a>
 			</div>
 			<div class="col-sm-6 portfolio-item">
@@ -251,7 +251,7 @@
 						</div>
 					</div>
 					<i class="fa fa-ship" aria-hidden="true"></i> Our Trusted Suppliers
-					<img src="/sesephil/img/about-us/suppliers.jpg" class="img-responsive img-thumbnail" alt="">
+					<img src="<?php echo $this->base;?>/img/about-us/suppliers.jpg" class="img-responsive img-thumbnail" alt="">
 				</a>
 			</div>
 			<div class="col-sm-6 portfolio-item">
@@ -262,7 +262,7 @@
 						</div>
 					</div>
 					<i class="fa fa-users" aria-hidden="true"></i> Our Loyal & Beloved Costumers
-					<img src="/sesephil/img/about-us/costumer.jpg" class="img-responsive img-thumbnail" alt="">
+					<img src="<?php echo $this->base;?>/img/about-us/costumer.jpg" class="img-responsive img-thumbnail" alt="">
 				</a>
 			</div>
 		</div>

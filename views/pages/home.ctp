@@ -1,4 +1,3 @@
-
 <?php echo $this->Html->addCrumb('Home Page'); ?>
 <div ng-controller="HomeController" ng-init="initializeController()">	
 	<div class="row">

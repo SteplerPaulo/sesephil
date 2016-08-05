@@ -18,7 +18,7 @@
 				<thead>
 					<tr>
 						<th colspan="4">MANUFACTURERS</th>
-						<th colspan="1"><a href = "/sesephil/admin/manufacturers/add" class="btn btn-sm btn-warning pull-right">Add New Manufacturer</a></th>
+						<th colspan="1"><a href = "<?php echo $this->base;?>/admin/manufacturers/add" class="btn btn-sm btn-warning pull-right">Add New Manufacturer</a></th>
 					</tr>
 					<tr>
 						<th>ID</th>
@@ -35,7 +35,7 @@
 						<td>{{d.Manufacturer.slug}}</td>
 						<td>{{d.Manufacturer.address}}</td>
 						<td class="actions text-center">
-							<a href="/sesephil/admin/manufacturers/edit/{{d.Manufacturer.id}}" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
+							<a href="<?php echo $this->base;?>/admin/manufacturers/edit/{{d.Manufacturer.id}}" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
 						</td>
 					</tr>
 				</tbody>

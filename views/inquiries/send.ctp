@@ -39,7 +39,7 @@
 						<li>
 							<p class="image-box">
 								<a href="#">
-									<img title="<?php echo $product['Product']['name'];?>" alt="<?php echo $product['Product']['name'];?>" src="/sesephil/img/product images/<?php echo $product['ProductImage'][0]['img_file'];?>"   width="50" height="50">
+									<img title="<?php echo $product['Product']['name'];?>" alt="<?php echo $product['Product']['name'];?>" src="<?php echo $this->base;?>/img/product images/<?php echo $product['ProductImage'][0]['img_file'];?>"   width="50" height="50">
 								</a>
 							</p>
 						</li>

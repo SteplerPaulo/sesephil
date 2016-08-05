@@ -18,7 +18,7 @@
 				<thead>
 					<tr >
 						<th colspan="3">CATEGORIES</th>
-						<th colspan="1"><a href = "/sesephil/admin/categories/add" class="btn btn-sm btn-warning pull-right">Add New Category</a></th>
+						<th colspan="1"><a href = "<?php echo $this->base;?>/admin/categories/add" class="btn btn-sm btn-warning pull-right">Add New Category</a></th>
 					</tr>
 					<tr>
 						<th>ID</th>
@@ -33,7 +33,7 @@
 						<td>{{d.Category.name}}</td>
 						<td>{{d.Category.slug}}</td>
 						<td class="actions text-center">
-							<a href="/sesephil/admin/categories/edit/{{d.Category.id}}" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
+							<a href="<?php echo $this->base;?>/admin/categories/edit/{{d.Category.id}}" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
 						</td>
 					</tr>
 				</tbody>
