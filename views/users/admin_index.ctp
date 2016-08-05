@@ -32,7 +32,8 @@
 						<td>{{d.User.username}}</td>
 						<td>{{d.User.full_name}}</td>
 						<td class="actions text-center">
-							<a data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
+							<a ng-if="d.User.is_admin" ng-click="removeAsAdmin(d)" data-toggle="tooltip" title="Remove as Admin" class="btn btn-success"><i class="fa fa-user-times" aria-hidden="true"></i></a>
+							<a ng-if="d.User.is_admin == 0" ng-click="addAsAdmin(d)"  data-toggle="tooltip" title="Add as Admin" class="btn btn-warning"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
 						</td>
 					</tr>
 				</tbody>
@@ -44,6 +45,39 @@
 					</tr>
 				</tfoot>
 			</table>
+		</div>
+	</div>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="Modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+				<?php echo $form->create('User',array('action'=>'assign')); ?>
+				<div class="modal-body"><br/><br/>
+					<div class="row">
+						<div class="col-lg-12">
+							<h4>{{ModalMessage}}</h4>
+						</div>
+					</div><br/><br/>
+					<div class="row">
+						<div class="col-lg-12 hide">
+							<div class="input select">
+								<label for="UserUserId">User</label>
+								<input name="data[User][user_id]" type="text" ng-model="UserId" class="form-control">
+							</div>
+							<div class="input text">
+								<label for="UserRoles">Roles</label>
+								<input name="data[User][roles]" type="text" ng-model="ArosId" class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					<button type="submit" class="btn btn-primary">Confirm</button>
+				</div>
+				<?php echo $this->Form->end();?>
+			</div>
 		</div>
 	</div>
 </div>
