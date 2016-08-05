@@ -1,1 +1,1 @@
-var BASE_URL ='/'+window.location.host+'/';
+var BASE_URL = window.location.host;
