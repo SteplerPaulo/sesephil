@@ -13,10 +13,12 @@ class InquiriesController extends AppController {
     } 
 
 	function admin_index() {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		$this->layout = 'admin_default';
 	}
 
 	function admin_view($id = null) {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid inquiry', true));
 			$this->redirect(array('action' => 'index'));
@@ -25,6 +27,7 @@ class InquiriesController extends AppController {
 	}
 
 	function admin_add() {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		if (!empty($this->data)) {
 			$this->Inquiry->create();
 			if ($this->Inquiry->save($this->data)) {
@@ -37,6 +40,7 @@ class InquiriesController extends AppController {
 	}
 
 	function admin_edit($id = null) {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid inquiry', true));
 			$this->redirect(array('action' => 'index'));
@@ -55,6 +59,7 @@ class InquiriesController extends AppController {
 	}
 
 	function admin_delete($id = null) {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for inquiry', true));
 			$this->redirect(array('action'=>'index'));

@@ -11,10 +11,12 @@ class CategoriesController extends AppController {
     } 
 
 	function admin_index() {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		$this->layout = "admin_default";
 	}
 
 	function admin_view($id = null) {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid category', true));
 			$this->redirect(array('action' => 'index'));
@@ -23,6 +25,7 @@ class CategoriesController extends AppController {
 	}
 
 	function admin_add() {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		$this->layout = "admin_default";
 		if (!empty($this->data)) {
 			
@@ -45,6 +48,7 @@ class CategoriesController extends AppController {
 	}
 
 	function admin_edit($id = null) {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		$this->layout = "admin_default";
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid category', true));
@@ -69,6 +73,7 @@ class CategoriesController extends AppController {
 	}
 
 	function admin_delete($id = null) {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for category', true));
 			$this->redirect(array('action'=>'index'));
@@ -83,7 +88,7 @@ class CategoriesController extends AppController {
 	
 	function main_children(){
 		//$this->data = $this->Category->generatetreelist(null, null, null, '&nbsp;&nbsp;&nbsp;');
-       //debug ($this->data); die;
+		//debug ($this->data); die;
 		
 		$categories = $this->Category->find('threaded', array('conditions' => array('Category.parent_id' => 1)));
 		echo json_encode($categories);

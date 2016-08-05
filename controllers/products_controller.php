@@ -19,14 +19,17 @@ class ProductsController extends AppController {
 			$this->Session->setFlash(__('Invalid product', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		//$this->set('product', $this->Product->findBySlug($slug));
 	}
 	
 	function admin_index() {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
+		
 		$this->layout = 'admin_default';
 	}
 
 	function admin_view($id = null) {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
+		
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid product', true));
 			$this->redirect(array('action' => 'index'));
@@ -35,6 +38,9 @@ class ProductsController extends AppController {
 	}
 
 	function admin_add() {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
+		
+		
 		$this->layout ="admin_default";	
 		if (!empty($this->data)) {
 			$this->data ["Product"]['slug'] = preg_replace ('#[ -]+#','-', strtolower(trim($this->data ["Product"]['name'])));
@@ -52,10 +58,12 @@ class ProductsController extends AppController {
 		$this->set(compact('categories', 'manufacturers'));
 	}
 
-	function admin_edit($id = null) {
+	function admin_edit($slug = null) {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
+		
+		
 		$this->layout ="admin_default";	
-			
-		if (!$id && empty($this->data)) {
+		if (!$slug && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid product', true));
 			$this->redirect(array('action' => 'index'));
 		}
@@ -69,7 +77,7 @@ class ProductsController extends AppController {
 			}
 		}
 		if (empty($this->data)) {
-			$this->data = $this->Product->read(null, $id);
+			$this->data = $this->Product->findBySlug($slug);
 		}
 		$categories = $this->Product->Category->find('list',array('recursive' => -1,'conditions' =>array('Category.parent_id' => 1)));
 		$manufacturers = $this->Product->Manufacturer->find('list');
@@ -77,6 +85,8 @@ class ProductsController extends AppController {
 	}
 
 	function admin_delete($id = null) {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
+		
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for product', true));
 			$this->redirect(array('action'=>'index'));
@@ -99,11 +109,9 @@ class ProductsController extends AppController {
 		$products = $this->Product->find('all');
 		
 		foreach($products as $k=>$d){
-			
-			$data['Product'][$k]['id'] = $d['Product']['id'];
-			
+			$data['Product'][$k]['id'] = $d['Product']['id'];//ID
 			$string = str_replace(' ', '-', strtolower(trim($d['Product']['name']))); 
-			$data['Product'][$k]['slug'] = preg_replace('/[^A-Za-z0-9\-]/', '-', $string);
+			$data['Product'][$k]['slug'] = preg_replace('/[^A-Za-z0-9\-]/', '-', $string);//SLUG
 		}
 	
 		if ($this->Product->saveAll($data['Product'])) {
@@ -115,11 +123,11 @@ class ProductsController extends AppController {
 		}
 	}
 
-	function by_filter($slug = 'assucryl-(pga)-braided-violet-coated'){
-		
-		
+	function by_filter($slug = null){
 		$result = $this->Product->find('first',array('recursive'=>3,'conditions'=>array('Product.slug'=>$slug)));
 		echo json_encode($result);
 		exit;
 	}
+	
+	
 }

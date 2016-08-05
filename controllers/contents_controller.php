@@ -61,11 +61,13 @@ class ContentsController extends AppController {
 	}
 	
 	function admin_index() {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		$this->Content->recursive = 0;
 		$this->set('contents', $this->paginate());
 	}
 
 	function admin_view($id = null) {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		$this->layout = "admin_default";
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid content', true));
@@ -75,6 +77,7 @@ class ContentsController extends AppController {
 	}
 
 	function admin_add() {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		$this->layout = "admin_default";
 		if (!empty($this->data)) {
 			$this->Content->create();
@@ -91,6 +94,7 @@ class ContentsController extends AppController {
 	}
 
 	function admin_edit($id = null) {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		$this->layout = "admin_default";
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid content', true));
@@ -113,6 +117,7 @@ class ContentsController extends AppController {
 	}
 
 	function admin_delete($id = null) {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for content', true));
 			$this->redirect(array('action'=>'index'));

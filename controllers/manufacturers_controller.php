@@ -18,10 +18,12 @@ class ManufacturersController extends AppController {
 	}
 
 	function admin_index() {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		$this->layout = 'admin_default';
 	}
 	
 	function admin_add() {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		$this->layout = 'admin_default';
 		if (!empty($this->data)) {
 			$string = str_replace(' ', '-', strtolower(trim($d['Manufacturer']['name']))); 
@@ -38,6 +40,7 @@ class ManufacturersController extends AppController {
 	}
 	
 	function admin_edit($id = null) {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		$this->layout = 'admin_default';
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid manufacturer', true));
@@ -60,6 +63,7 @@ class ManufacturersController extends AppController {
 	}
 
 	function admin_delete($id = null) {
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for manufacturer', true));
 			$this->redirect(array('action'=>'index'));
@@ -73,8 +77,9 @@ class ManufacturersController extends AppController {
 	}
 	
 	function admin_slug(){
-		$manufacturers = $this->Manufacturer->find('all');
+		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		
+		$manufacturers = $this->Manufacturer->find('all');
 		foreach($manufacturers as $k=>$d){
 			
 			$data['Manufacturer'][$k]['id'] = $d['Manufacturer']['id'];
