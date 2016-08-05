@@ -115,7 +115,7 @@
 	<div id="footer">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4  text-muted">Powered By <a href="#">No Sweat Technology</a></div>	
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4  text-muted">Powered By <a href="#">PHAiC Technology</a></div>	
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-muted text-center ">	
 					Follow us on
 					<a href="https://www.facebook.com/pages/South-East-Star-Enterprises/419907524739514" target="_blank" title="SESEPHIL Facebook Page" data-toggle="tooltip" ><i class="fa fa-facebook-official"></i></a> 
