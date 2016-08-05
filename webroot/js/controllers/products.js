@@ -1,6 +1,4 @@
 App.controller('ProductsController',function($scope,$rootScope,$http,$filter){
-	
-	console.log(BASE_URL+"categories/main_children");
 
 	$scope.initializeController = function(){
 		$scope.currentPage = 1; 
@@ -9,12 +7,19 @@ App.controller('ProductsController',function($scope,$rootScope,$http,$filter){
 			$scope.categories = response;
 		});
 			
-		$http.get(BASE_URL+"/products/all").success(function(response) {
+		$http.get(BASE_URL+"products/all").success(function(response) {
 			$scope.products = response;
 			
-			if(window.location.pathname.split('/')[3]){
-				$scope.productFilter = window.location.pathname.split('/')[3];
+			if (document.location.hostname == "localhost"){
+				if(window.location.pathname.split('/')[3]){
+					$scope.productFilter = window.location.pathname.split('/')[3];
+				}
+			}else{
+				if(window.location.pathname.split('/')[2]){
+					$scope.productFilter = window.location.pathname.split('/')[2];
+				}
 			}
+		
 		});
 	}
 });
