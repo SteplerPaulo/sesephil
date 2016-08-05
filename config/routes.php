@@ -27,15 +27,27 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/views/pages/home.ctp)...
  */
+	
+	
+	//Pages
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
 	Router::connect('/about-us', array('controller' => 'pages', 'action' => 'display','about-us'));
 	Router::connect('/contacts', array('controller' => 'pages', 'action' => 'display','contacts'));
 	
+	//Admin Dashboard
 	Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));
 	
+	//Products
 	Router::connect('/product/:slug', array('controller' => 'products', 'action' => 'view'), array('pass' => array('slug')));//PER ITEM
 	Router::connect('/product-category/:slug', array('controller' => 'products', 'action' => 'index'), array('pass' => array('slug')));//FILTER BY CATEGORY
+	
+	//Admin Product Images
+	Router::connect('/admin/product/:slug/images', array('controller' => 'product_images', 'action' => 'index', 'admin' => true), array('pass' => array('slug')));//index
+	Router::connect('/admin/product/:slug/add/photo', array('controller' => 'product_images', 'action' => 'add', 'admin' => true), array('pass' => array('slug')));//add
+	//Router::connect('/admin/product/:slug/image/edit/:id', array('controller' => 'product_images', 'action' => 'edit', 'admin' => true), array('pass' => array('id')));//edit
 
+	
+	
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
