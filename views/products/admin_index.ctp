@@ -34,7 +34,10 @@
 						<td>{{d.Category.name}}</td>
 						<td>{{d.Manufacturer.name}}</td>
 						<td class="actions text-center">
-							<a href="/sesephil/admin/products/edit/{{d.Product.id}}" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
+							<a href="/sesephil/admin/products/edit/{{d.Product.slug}}" data-toggle="tooltip" title="Edit Product Details"><i class="fa fa-edit"></i></a>
+							| 
+							<a href="/sesephil/admin/product/{{d.Product.slug}}/images/" data-toggle="tooltip" title="Product Images"><i class="fa fa-file-image-o"></i></a>
+							
 						</td>
 					</tr>
 				</tbody>
