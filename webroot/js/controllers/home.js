@@ -1,3 +1,4 @@
+var BASE_URL = window.location.href;
 App.controller('HomeController',function($scope,$rootScope,$http,$filter){
 	
 	$scope.initializeController = function(){
@@ -5,18 +6,14 @@ App.controller('HomeController',function($scope,$rootScope,$http,$filter){
 		$scope.categoryLimit = false;
 		$scope.productLimit = 5;
 		$scope.imageLimit = 5;
-		 
-		 $scope.phones = [{
-			"name": "Motorola XOOM™ with Wi-Fi",
-				"snippet": "The Next, Next <br/> Generation tablet."
-		}];
+
 			
-		$http.get("/sesephil/categories/main_children").success(function(response) {
+		$http.get(BASE_URL+"categories/main_children").success(function(response) {
 			$scope.categories = response;
 			
 		});
 		
-		$http.get("/sesephil/products/all").success(function(response) {
+		$http.get(BASE_URL+"products/all").success(function(response) {
 			$scope.products = response;
 		});
 	}
