@@ -1,3 +1,4 @@
+
 <?php echo $this->Html->addCrumb('Home Page'); ?>
 <div ng-controller="HomeController" ng-init="initializeController()">	
 	<div class="row">
@@ -8,22 +9,10 @@
 					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 						<ol class="carousel-indicators">
 							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-							<li data-target="#carousel-example-generic" data-slide-to="3"></li>
 						</ol>
 						<div class="carousel-inner">
 							<div class="item active">
-								<img class="slide-image" src="/sesephil/webroot/img/banner/1.jpg" style="height:300px;">
-							</div>
-							<div class="item">
-								<img class="slide-image" src="/sesephil/webroot/img/banner/2.jpg" style="height:300px;">
-							</div>
-							<div class="item">
-								<img class="slide-image" src="/sesephil/webroot/img/banner/3.jpg" style="height:300px;">
-							</div>
-							<div class="item">
-								<img class="slide-image" src="/sesephil/webroot/img/banner/4.jpg" style="height:300px;">
+								<img src="http://placehold.it/950x350" ng-if="!d.ProductImage.length">
 							</div>
 						</div>
 						<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
