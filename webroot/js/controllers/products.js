@@ -1,5 +1,5 @@
 App.controller('ProductsController',function($scope,$rootScope,$http,$filter){
-	console.log(BASE_URL);
+	console.log(BASE_URL+"/categories/main_children");
 
 	$scope.initializeController = function(){
 		$scope.currentPage = 1; 
