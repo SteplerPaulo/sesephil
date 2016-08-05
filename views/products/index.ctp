@@ -34,7 +34,7 @@
 									</ol>
 									<div class="carousel-inner">
 										<div class="item" dir-paginate="(key,images) in d.ProductImage | filter:q | itemsPerPage: productLimit" ng-class="{active: key==0}">
-											<img src="/sesephil/img/product images/{{images.img_file}}" alt="{{d.Product.name}}" style="height:150px;">
+											<img src="<?php echo $_SERVER['REQUEST_URI'];?>img/product images/{{images.img_file}}" alt="{{d.Product.name}}" style="height:150px;">
 										</div>
 									</div>
 									<a class="left carousel-control" href="#{{d.Product.slug}}" data-slide="prev" ng-if="d.ProductImage.length > 1" >
@@ -49,7 +49,7 @@
 						<img src="http://placehold.it/320x150" ng-if="!d.ProductImage.length" style="height:150px;">
 						<div class="caption">
 							<h4>
-								<a href="/sesephil/product/{{d.Product.slug}}">{{d.Product.name}}</a>
+								<a href="<?php echo $_SERVER['REQUEST_URI'];?>product/{{d.Product.slug}}">{{d.Product.name}}</a>
 							</h4>
 							<dl>
 							  <dt>Manufactured by:</dt>
@@ -57,7 +57,7 @@
 							</dl>
 						</div>
 						<p class="contact-now">
-							<a href="/sesephil/inquiries/send/{{d.Product.slug}}" target="_blank" class="btn btn-danger btn-sm"><i class="fa fa-envelope-o"></i> Contact Now</a>
+							<a href="<?php echo $_SERVER['REQUEST_URI'];?>inquiries/send/{{d.Product.slug}}" target="_blank" class="btn btn-danger btn-sm"><i class="fa fa-envelope-o"></i> Contact Now</a>
 						</p>
 					</div>
 				</div>
@@ -73,12 +73,12 @@
 		<section class="col-xs-12 col-lg-3 col-lg-pull-9">
 			<table class="table table-hover categories-table">
 				<thead>
-					<th><a href="/sesephil/products">CATEGORIES</a></th>
+					<th><a href="<?php echo $_SERVER['REQUEST_URI'];?>products">CATEGORIES</a></th>
 				</thead>
 				<tbody>
 					<tr  pagination-id="CategoryList" dir-paginate="d in categories | filter:q | itemsPerPage: categoryLimit">
 						<td>
-							<a href="/sesephil/product-category/{{d.Category.slug}}"  >{{d.Category.name}}</a>
+							<a href="<?php echo $_SERVER['REQUEST_URI'];?>product-category/{{d.Category.slug}}"  >{{d.Category.name}}</a>
 						</td>
 					</tr>
 				</tbody>
