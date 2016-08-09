@@ -1,0 +1,3 @@
+NOTE:
+
+Banner Image Size Must Be 950 width x 350 height

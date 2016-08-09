@@ -30,7 +30,7 @@ class CategoriesController extends AppController {
 		if (!empty($this->data)) {
 			
 			
-			$string = str_replace(' ', '-', strtolower(trim($d['Category']['name']))); 
+			$string = str_replace(' ', '-', strtolower(trim($this->data['Category']['name']))); 
 			$this->data['Category']['slug'] = preg_replace('/[^A-Za-z0-9\-]/', '-', $string);
 			
 			
@@ -47,15 +47,15 @@ class CategoriesController extends AppController {
 		$this->set(compact('categories'));
 	}
 
-	function admin_edit($id = null) {
+	function admin_edit($slug = null) {
 		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		$this->layout = "admin_default";
-		if (!$id && empty($this->data)) {
+		if (!$slug && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid category', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			$string = str_replace(' ', '-', strtolower(trim($d['Category']['name']))); 
+			$string = str_replace(' ', '-', strtolower(trim($this->data['Category']['name']))); 
 			$this->data['Category']['slug'] = preg_replace('/[^A-Za-z0-9\-]/', '-', $string);
 			
 			if ($this->Category->save($this->data)) {
@@ -66,7 +66,7 @@ class CategoriesController extends AppController {
 			}
 		}
 		if (empty($this->data)) {
-			$this->data = $this->Category->read(null, $id);
+			$this->data = $this->Category->findBySlug($slug);
 		}
 		$categories = $this->Category->find('list', array('recursive' => -1,'conditions' =>array('Category.id' => 1)));
 		$this->set(compact('categories'));

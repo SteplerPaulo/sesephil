@@ -33,7 +33,7 @@
 						<td>{{d.Category.name}}</td>
 						<td>{{d.Category.slug}}</td>
 						<td class="actions text-center">
-							<a href="<?php echo $this->base;?>/admin/categories/edit/{{d.Category.id}}" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
+							<a href="<?php echo $this->base;?>/admin/categories/edit/{{d.Category.slug}}" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
 						</td>
 					</tr>
 				</tbody>

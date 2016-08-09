@@ -35,7 +35,7 @@
 						<td>{{d.Manufacturer.slug}}</td>
 						<td>{{d.Manufacturer.address}}</td>
 						<td class="actions text-center">
-							<a href="<?php echo $this->base;?>/admin/manufacturers/edit/{{d.Manufacturer.id}}" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
+							<a href="<?php echo $this->base;?>/admin/manufacturers/edit/{{d.Manufacturer.slug}}" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
 						</td>
 					</tr>
 				</tbody>

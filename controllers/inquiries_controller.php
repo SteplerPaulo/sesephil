@@ -9,7 +9,7 @@ class InquiriesController extends AppController {
 	function beforeFilter(){ 
 		parent::beforeFilter();
 		$this->Auth->userModel = 'User'; 
-		$this->Auth->allow(array('send','send_mail_using_smtp'));	
+		$this->Auth->allow(array('send','send_mail_using_smtp','send_via_contactus'));	
     } 
 
 	function admin_index() {
@@ -107,29 +107,17 @@ class InquiriesController extends AppController {
 											$attachement);
 										
 										
-				$this->Session->setFlash(__('The inquiry has been saved', true));
+				$this->Session->setFlash(__('The inquiry has been sent', true));
 				$this->redirect(array('controller'=>'products','action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The inquiry could not be saved. Please, try again.', true));
 			}
 		}
-		
-		
 		$product = $this->Product->findBySlug($slug);
-		//pr($product);exit;
 		$this->set('product', $product);
-		
 	}
 	
 	function send_mail_using_smtp($from,$subject,$body,$attachement = null){
-		
-		//pr($from);
-		//pr($subject);
-		//pr($content);
-		//pr($attachement['name']);
-		//pr('C:\wamp\www\sesephil\webroot\img\inquiry files\Inquiry ID 1/'.$attachement['name']);
-		//exit;
-	
 		
 		$this->Email->smtpOptions = array( 
 			'port'=>'465',
@@ -173,6 +161,25 @@ class InquiriesController extends AppController {
 		$body = 'This is a test for secured smtp';
 		$attachement = null;
 		$this->send_mail_using_smtp($from,$subject,$body,$attachement);
+	}
+	
+	function send_via_contactus() {
+		if (!empty($this->data)) {
+			$this->Inquiry->create();
+			if ($this->Inquiry->save($this->data)) {
+				//SEND VIA SMTP
+				$this->send_mail_using_smtp($this->data['Inquiry']['from'],
+											$this->data['Inquiry']['subject'],
+											$this->data['Inquiry']['content'],
+											null);
+										
+										
+				$this->Session->setFlash(__('Your message has been sent', true));
+				$this->redirect(array('controller'=>'','action' => 'contacts'));
+			} else {
+				$this->Session->setFlash(__('Error sending message. Please, try again.', true));
+			}
+		}
 	}
 	
 	function all(){

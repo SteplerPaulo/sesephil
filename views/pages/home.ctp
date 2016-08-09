@@ -1,17 +1,32 @@
 <?php echo $this->Html->addCrumb('Home Page'); ?>
-<div ng-controller="HomeController" ng-init="initializeController()">	
+<style>
+	.image_container {
+		width: 950px;
+		height: 350px;
+		display: inline-block;
+		overflow: hidden;
+	}
+
+	.image_container img {
+		min-width: 100%;
+		min-height: 100%;
+		max-width: 100%;
+		max-height: 100%;
+	}
+</style>
+<div ng-controller="HomeController" ng-init="initializeController()">
 	<div class="row">
 		<section class="col-md-9">
-			<h4>Events</h4>
-			<div class="row carousel-holder">
+			<h4 ng-if="banners.length">Events</h4>
+			<div class="row carousel-holder" ng-if="banners.length">
 				<div class="col-sm-12 col-md-12 col-lg-12">
 					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 						<ol class="carousel-indicators">
-							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="0" dir-paginate="(key,data) in banners | itemsPerPage: bannerLimit" ng-class="{active: key==0}"></li>	
 						</ol>
 						<div class="carousel-inner">
-							<div class="item active">
-								<img src="http://placehold.it/950x350" ng-if="!d.ProductImage.length">
+							<div class="item image_container" dir-paginate="(key,data) in banners | itemsPerPage: bannerLimit" ng-class="{active: key==0}">
+								<img src="<?php echo $this->base;?>/img/banner/{{data.Banner.img_file}}" alt="{{d.Product.name}}" class="img-responsive">	
 							</div>
 						</div>
 						<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -65,25 +80,32 @@
 					</div>
 				</div>
 				<div class="col-sm-4 col-lg-4 col-md-4">
-		
+					<!--
 					<h4>
 						<a href="javascript:void(0)">Want to Call or Chat our costumer service representative?</a>
 					</h4>
+					
 					<p>
 						All you need is an internet connection and a facebook messenger account
 						<a href="javascript:void(0);">Read More...</a>
 					</p>
 					
-							
-					
 					<span class="call-us-now">Call Us Now!</span>
+					
 					<a href="https://www.messenger.com/t/pkerroj" target="_blank" class="pull-right" style="margin-top: -25px;">
 						<image  src="<?php echo $this->base;?>/img/messenger-icon.png"/>
-						
 					</a>
+					-->
+					<h4><a href="javascript:void(0)">Want to Call or Chat our costumer service representative?</a></h4>
+					<p>
+						What do I need to start contacting SESEPHIL using Skype?
+						<br/><br/>
+						All you need to get up and running with Skype is an internet connection – broadband is best.
+						<a href="https://support.skype.com/en/faq/FA10328/what-do-i-need-to-start-using-skype" target="_blank">Read More...</a>
+					</p>
+					<span class="call-us-now">Call Us Now!</span>
 					
 					
-					<!--
 					<script type="text/javascript" src="https://secure.skypeassets.com/i/scom/js/skype-uri.js"></script>
 					<div id="SkypeButton_Call_pkerroj_1" class="pull-right">
 						<script type="text/javascript">
@@ -94,7 +116,7 @@
 							 });
 						</script>
 					</div>	
-					-->
+					
 				</div>	
 			</div>
 		</section>

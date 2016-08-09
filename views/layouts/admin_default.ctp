@@ -154,7 +154,7 @@
 						?>
 					</li>
 					 <li>		
-						<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-dropbox')).' '.
+						<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-cubes')).' '.
 												$this->Html->tag('span', 'Products'),
 												array('admin' => true,'controller'=>'products','action'=>'/'),
 												array('escape' => false)
@@ -171,6 +171,13 @@
 						<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-truck')).' '.
 												$this->Html->tag('span', 'Manufacturers'),
 												array('admin' => true,'controller'=>'manufacturers','action'=>'/'),
+												array('escape' => false)
+												);  ?>
+					</li>
+					<li>		
+						<?php echo $this->Html->link( 	$this->Html->tag('i', '', array('class' => 'fa fa-fw fa-newspaper-o')).' '.
+												$this->Html->tag('span', 'Banners'),
+												array('admin' => true,'controller'=>'banners','action'=>'/'),
 												array('escape' => false)
 												);  ?>
 					</li>
