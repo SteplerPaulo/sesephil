@@ -103,7 +103,7 @@ class ProductsController extends AppController {
 	}
 	
 	function all(){
-		$products = $this->Product->find('all');
+		$products = $this->Product->find('all',array('order' =>array('Product.modified DESC')));
 		echo json_encode($products);
 		exit;
 	}

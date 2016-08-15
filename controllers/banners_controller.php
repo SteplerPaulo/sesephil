@@ -79,7 +79,7 @@ class BannersController extends AppController {
 	}
 
 	function all(){
-		$banners = $this->Banner->find('all');
+		$banners = $this->Banner->find('all',array('order' =>array('Banner.modified DESC')));
 		echo json_encode($banners);
 		exit;
 		

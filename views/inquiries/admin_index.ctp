@@ -16,10 +16,9 @@
 			<table class="table table-striped table-hovered">
 				<thead>
 					<tr>
-						<th colspan="5">INQUIRIES</th>
+						<th colspan="4">INQUIRIES</th>
 					</tr>
 					<tr>
-						<th>ID</th>
 						<th>From</th>
 						<th>Subject</th>
 						<th>Created</th>
@@ -28,7 +27,6 @@
 				</thead>
 				<tbody>
 					<tr pagination-id="InquiryListTable" dir-paginate="s in inquiries | filter:q | itemsPerPage: pageSize" current-page="currentPage">
-						<td>{{s.Inquiry.id}}</td>
 						<td>{{s.Inquiry.from}}</td>
 						<td>{{s.Inquiry.subject}}</td>
 						<td>{{s.Inquiry.created}}</td>
@@ -39,7 +37,7 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="5" class="text-center">
+						<td colspan="4" class="text-center">
 							<dir-pagination-controls pagination-id="InquiryListTable"></dir-pagination-controls>
 						</td>
 					</tr>

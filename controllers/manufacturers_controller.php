@@ -100,7 +100,7 @@ class ManufacturersController extends AppController {
 	}
 
 	function all(){
-		$manufacturers = $this->Manufacturer->find('all');
+		$manufacturers = $this->Manufacturer->find('all',array('order' =>array('Manufacturer.modified DESC')));
 		echo json_encode($manufacturers);
 		exit;
 		

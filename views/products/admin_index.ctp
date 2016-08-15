@@ -16,11 +16,10 @@
 			<table class="table table-striped table-hovered">
 				<thead>
 					<tr>
-						<th colspan="4">PRODUCTS</th>
+						<th colspan="3">PRODUCTS</th>
 						<th colspan="1"><a href = "<?php echo $this->base;?>/admin/products/add" class="btn btn-sm btn-warning pull-right">Add New Product</a></th>
 					</tr>
 					<tr>
-						<th>ID</th>
 						<th>Name</th>
 						<th>Category</th>
 						<th>Manufacturer</th>
@@ -29,7 +28,6 @@
 				</thead>
 				<tbody>
 					<tr pagination-id="ProductListTable" dir-paginate="d in products | filter:q | itemsPerPage: pageSize" current-page="currentPage">
-						<td>{{d.Product.id}}</td>
 						<td>{{d.Product.name}}</td>
 						<td>{{d.Category.name}}</td>
 						<td>{{d.Manufacturer.name}}</td>
@@ -45,7 +43,7 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="5" class="text-center">
+						<td colspan="4" class="text-center">
 							<dir-pagination-controls pagination-id="ProductListTable"></dir-pagination-controls>
 						</td>
 					</tr>

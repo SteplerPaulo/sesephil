@@ -17,22 +17,18 @@
 			<table class="table table-striped table-hovered">
 				<thead>
 					<tr>
-						<th colspan="4">MANUFACTURERS</th>
+						<th colspan="2">MANUFACTURERS</th>
 						<th colspan="1"><a href = "<?php echo $this->base;?>/admin/manufacturers/add" class="btn btn-sm btn-warning pull-right">Add New Manufacturer</a></th>
 					</tr>
 					<tr>
-						<th>ID</th>
 						<th>Name</th>
-						<th>Slug</th>
 						<th>Address</th>
 						<th class="actions text-center">Action</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr pagination-id="ManufacturerListTable" dir-paginate="d in manufacturers | filter:q | itemsPerPage: pageSize" current-page="currentPage">
-						<td>{{d.Manufacturer.id}}</td>
 						<td>{{d.Manufacturer.name}}</td>
-						<td>{{d.Manufacturer.slug}}</td>
 						<td>{{d.Manufacturer.address}}</td>
 						<td class="actions text-center">
 							<a href="<?php echo $this->base;?>/admin/manufacturers/edit/{{d.Manufacturer.slug}}" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a> | 
@@ -42,7 +38,7 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="5" class="text-center">
+						<td colspan="3" class="text-center">
 							<dir-pagination-controls pagination-id="ManufacturerListTable"></dir-pagination-controls>
 						</td>
 					</tr>

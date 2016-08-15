@@ -16,11 +16,10 @@
 			<table class="table table-striped table-hovered">
 				<thead>
 					<tr>
-						<th colspan="6">BANNERS</th>
+						<th colspan="5">BANNERS</th>
 						<th colspan="1"><a href = "<?php echo $this->base;?>/admin/banners/add" class="btn btn-sm btn-warning pull-right">Add New Banner</a></th>
 					</tr>
 					<tr>
-						<th>ID</th>
 						<th>Name</th>
 						<th>Image</th>
 						<th>Caption</th>
@@ -31,7 +30,6 @@
 				</thead>
 				<tbody>
 					<tr pagination-id="BannerListTable" dir-paginate="d in banners | filter:q | itemsPerPage: pageSize" current-page="currentPage">
-						<td>{{d.Banner.id}}</td>
 						<td>{{d.Banner.name}}</td>
 						<td>
 							<img src="<?php echo $this->base;?>/img/banner/thumb/small/{{d.Banner.img_file}}" class="img-responsive img-thumbnail" alt="">
@@ -47,7 +45,7 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="7" class="text-center">
+						<td colspan="6" class="text-center">
 							<dir-pagination-controls pagination-id="BannerListTable"></dir-pagination-controls>
 						</td>
 					</tr>
