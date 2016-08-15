@@ -7,6 +7,7 @@ class ProductImagesController extends AppController {
 	function admin_index() {
 		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
 		$this->layout = "admin_default";
+	
 	}
 
 
@@ -51,18 +52,27 @@ class ProductImagesController extends AppController {
 		$this->set(compact('products'));
 	}
 
-	function admin_delete($id = null) {
+	function admin_delete($id =  null) {
 		if(!$this->Access->check('User','admin')) die ("HTTP ERROR 401 (UNAUTHORIZED) <br/><br/>Call system administrator for your account verification");
+		
+		$id  = $this->params['named']['id'];
+		$slug  = $this->params['named']['product_slug'];
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for product image', true));
-			$this->redirect(array('action'=>'index'));
+			$this->redirect(array("controller" => 'product', 
+				"action" => 'admin_'.$slug.'/images',
+			));
 		}
 		if ($this->ProductImage->delete($id)) {
 			$this->Session->setFlash(__('Product image deleted', true));
-			$this->redirect(array('action'=>'index'));
+			$this->redirect(array("controller" => 'product', 
+				"action" => 'admin_'.$slug.'/images',
+			));
 		}
 		$this->Session->setFlash(__('Product image was not deleted', true));
-		$this->redirect(array('action' => 'index'));
+		$this->redirect(array("controller" => 'product', 
+			"action" => 'admin_'.$slug.'/images',
+		));
 	}
 
 	function by_filter($product_slug = null){

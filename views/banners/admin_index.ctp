@@ -40,7 +40,8 @@
 						<td>{{d.Banner.created}}</td>
 						<td>{{d.Banner.modified}}</td>
 						<td class="actions text-center">
-							<a href="<?php echo $this->base;?>/admin/banners/edit/{{d.Banner.id}}" data-toggle="tooltip" title="Edit Name & Caption"><i class="fa fa-edit"></i></a>
+							<a href="<?php echo $this->base;?>/admin/banners/edit/{{d.Banner.id}}" data-toggle="tooltip" title="Edit Name & Caption"><i class="fa fa-edit"></i></a> |
+							<a href="<?php echo $this->base;?>/admin/banners/delete/{{d.Banner.id}}" onclick="return confirm('Are you sure you want to delete this banner?');" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a>
 						</td>
 					</tr>
 				</tbody>

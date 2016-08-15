@@ -35,7 +35,8 @@
 						<td>{{d.Manufacturer.slug}}</td>
 						<td>{{d.Manufacturer.address}}</td>
 						<td class="actions text-center">
-							<a href="<?php echo $this->base;?>/admin/manufacturers/edit/{{d.Manufacturer.slug}}" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
+							<a href="<?php echo $this->base;?>/admin/manufacturers/edit/{{d.Manufacturer.slug}}" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a> | 
+							<a href="<?php echo $this->base;?>/admin/manufacturers/delete/{{d.Manufacturer.id}}" onclick="return confirm('Are you sure you want to delete this manufacturer?');" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a>
 						</td>
 					</tr>
 				</tbody>

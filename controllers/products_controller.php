@@ -43,7 +43,9 @@ class ProductsController extends AppController {
 		
 		$this->layout ="admin_default";	
 		if (!empty($this->data)) {
-			$this->data ["Product"]['slug'] = preg_replace ('#[ -]+#','-', strtolower(trim($this->data ["Product"]['name'])));
+	
+			$string = str_replace(' ', '-', strtolower(trim($this->data['Product']['name']))); 
+			$this->data['Product']['slug'] = preg_replace('/[^A-Za-z0-9\-]/', '-', $string);//SLUG
 		
 			$this->Product->create();
 			if ($this->Product->save($this->data)) {
@@ -68,7 +70,8 @@ class ProductsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			$this->data ["Product"]['slug'] = preg_replace ('#[ -]+#','-', strtolower(trim($this->data ["Product"]['name'])));
+			$string = str_replace(' ', '-', strtolower(trim($this->data['Product']['name']))); 
+			$this->data['Product']['slug'] = preg_replace('/[^A-Za-z0-9\-]/', '-', $string);//SLUG
 			if ($this->Product->save($this->data)) {
 				$this->Session->setFlash(__('The product has been saved', true));
 				$this->redirect(array('action' => 'index'));

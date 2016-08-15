@@ -6,7 +6,6 @@
 #ProductImageCaption{
 	resize:none;
 }
-	
 </style>
 
 
@@ -25,7 +24,13 @@
 	
 	<div class="row" id="portfolio">
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"  pagination-id="ProductImages" dir-paginate="img in d.ProductImage | filter:r | itemsPerPage: pageSize">
-			
+			<div>
+				<span ng-if="img.caption">{{img.caption}}</span> 
+				<span ng-if="!img.caption" class="text-muted">No caption </span> 
+				<span class="pull-right">
+					<a href="<?php echo $this->base;?>/admin/product_images/delete/id:{{img.id}}/product_slug:{{ProductSlug}}" onclick="return confirm('Are you sure you want to delete this photo?');" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a>
+				</span>
+			</div>
 			<div class="portfolio-item">
 				<a ng-click="editImageCaption(img)" class="portfolio-link">
 					<div class="caption">
@@ -33,8 +38,6 @@
 							<i class="fa fa-edit fa-3x"></i>
 						</div>
 					</div>
-					<div ng-if="img.caption">{{img.caption}}</div>
-					<div ng-if="!img.caption" class="text-muted">No caption</div>
 					<img src="<?php echo $this->base;?>/img/product images/{{img.img_file}}" class="img-responsive img-thumbnail" alt="" style="height:200px; width:340px;">
 				</a>
 			</div>
